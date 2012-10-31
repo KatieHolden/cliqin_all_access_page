@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  class_date: 2012-10-30
+  total_points: 1
+  answers: MyString
+  course_ID: 1
+
+two:
+  class_date: 2012-10-30
+  total_points: 1
+  answers: MyString
+  course_ID: 1
