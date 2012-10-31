@@ -11,6 +11,10 @@ AllAccessPage::Application.routes.draw do
   resources :instructors
 
   root :to => "home#index"
+
+  match '/instructorsignup', :to => 'instructors#new'
+
+  match '/studentsignup', :to => 'students#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
