@@ -5,13 +5,13 @@ gem 'bootstrap-sass', '2.0.4'
 
 group :development do
   gem 'sqlite3', '1.3.5'
+  gem 'annotate', '2.5.0'
 end
 
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.
