@@ -10,9 +10,12 @@
 #
 
 class Instructor < ActiveRecord::Base
-  attr_accessible :IP, :login
+  attr_accessible :IP, :login, :password, :password_confirmation
+  has_secure_password
 
   before_save { |instructor| instructor.login = login.downcase }
 
   validates :login, :presence => true, :uniqueness => { :case_sensitive => false }
+  validates :password, :presence => true, :length => { :minimum => 6 }
+  validates :password_confirmation, :presence => true
 end
