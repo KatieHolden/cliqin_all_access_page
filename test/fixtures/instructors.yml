@@ -2,10 +2,8 @@
 
 one:
   login: MyString
-  password: MyString
-  IP_address: MyString
+  IP: MyString
 
 two:
   login: MyString
-  password: MyString
-  IP_address: MyString
+  IP: MyString

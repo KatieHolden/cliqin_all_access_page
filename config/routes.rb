@@ -1,5 +1,11 @@
 AllAccessPage::Application.routes.draw do
 
+  resources :answers
+
+  resources :grades
+
+  resources :students
+
   resources :courses
 
   resources :instructors

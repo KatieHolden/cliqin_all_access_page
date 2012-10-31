@@ -3,8 +3,7 @@
 <table>
   <tr>
     <th>Login</th>
-    <th>Password</th>
-    <th>Ip address</th>
+    <th>Ip</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +12,7 @@
 <% @instructors.each do |instructor| %>
   <tr>
     <td><%= instructor.login %></td>
-    <td><%= instructor.password %></td>
-    <td><%= instructor.IP_address %></td>
+    <td><%= instructor.IP %></td>
     <td><%= link_to 'Show', instructor %></td>
     <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
     <td><%= link_to 'Destroy', instructor, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
