@@ -16,7 +16,7 @@
           <%= link_to "Cliqin Classmate Assisstant", '#', :id => "logo" %> 
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
+              <li><%= link_to "Home",    '/' %></li>
               <li><%= link_to "Help",    '#' %></li>
               <li><%= link_to "Student Sign Up", studentsignup_path %></li>
               <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
@@ -26,6 +26,9 @@
       </div>
     </header>
     <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
     </div>
 

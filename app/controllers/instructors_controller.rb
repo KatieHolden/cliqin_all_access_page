@@ -42,6 +42,17 @@ class InstructorsController < ApplicationController
   def create
     @instructor = Instructor.new(params[:instructor])
 
+    if @instructor.save
+      flash[:success] = "Welcome to the Sample App!"
+      
+      redirect_to @instructor
+
+      return
+    else
+      render 'new'
+      return
+    end
+
     respond_to do |format|
       if @instructor.save
         format.html { redirect_to @instructor, :notice => 'Instructor was successfully created.' }
