@@ -19,6 +19,8 @@ AllAccessPage::Application.routes.draw do
   match '/instructorsignout', to: 'sessions#destroy', via: :delete
 
   match '/studentsignup', :to => 'students#new'
+  match '/studentsignin',  to: 'sessions#new'
+  match '/studentsignout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

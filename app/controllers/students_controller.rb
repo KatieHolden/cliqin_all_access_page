@@ -42,6 +42,17 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(params[:student])
 
+    if @student.save
+      sign_in @student
+      flash[:success] = "Welcome to Cliqin!"
+      redirect_to @student
+
+      return
+    else
+      render 'new'
+      return
+    end
+
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, :notice => 'Student was successfully created.' }

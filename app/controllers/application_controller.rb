@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
 
   protected
   	def set_current_ip
-    	Instructor.IP = request.env['REMOTE_ADDR']
+    	Instructor.IP = request.env['action_dispatch.remote_ip']
+    	request.env.each do |k,v|
+    		puts(k)
+    		puts(v)
+    		puts("\n\n\n")
+    	end
 	end
 
 end

@@ -9,5 +9,13 @@
 #
 
 class Student < ActiveRecord::Base
-  attr_accessible :login
+  attr_accessible :login, :password, :password_confirmation
+  has_secure_password
+
+  before_save { |student| student.login = login.downcase }
+
+  validates :login, :presence => true, :uniqueness => { :case_sensitive => false }
+  validates :password, :presence => true, :length => { :minimum => 6 }
+  validates :password_confirmation, :presence => true
+
 end
