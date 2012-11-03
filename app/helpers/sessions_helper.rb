@@ -1,25 +1,23 @@
 module SessionsHelper
-	  def sign_in(instructor)
-    	
-      cookies[:remember_token] = { value: instructor.remember_token, expires: 3.hours.from_now.utc }
-                                
-    	self.current_instructor = instructor
+	  def sign_in(user)
+      cookies[:remember_token] = { value: user.remember_token, expires: 3.hours.from_now.utc }                         
+    	self.current_user = user
     end
 
     def signed_in?
-    	!current_instructor.nil?
+    	!current_user.nil?
   	end
 
-    def current_instructor=(instructor)
-    	@current_instructor = instructor
+    def current_user=(user)
+    	@current_user = user
   	end
 
-  	def current_instructor
-    	@current_instructor ||= Instructor.find_by_remember_token(cookies[:remember_token])
+  	def current_user
+    	@current_user ||= User.find_by_remember_token(cookies[:remember_token])
   	end
 
   	def sign_out
-    	self.current_instructor = nil
+    	self.current_user = nil
     	cookies.delete(:remember_token)
   	end
 end

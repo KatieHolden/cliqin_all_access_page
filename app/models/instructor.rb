@@ -10,14 +10,15 @@
 #
 
 class Instructor < ActiveRecord::Base
-  attr_accessible :login, :password, :password_confirmation
+  acts_as_heir_of :user
   cattr_accessor :IP
+  attr_accessible :login, :password, :password_confirmation
   has_secure_password
 
   before_save { |instructor| instructor.login = login.downcase }
   before_save :create_remember_token
 
-  validates :login, :presence => true, :uniqueness => { :case_sensitive => false }
+  validates :login, :presence => true #, :uniqueness => { :case_sensitive => false }
   validates :password, :presence => true, :length => { :minimum => 6 }
   validates :password_confirmation, :presence => true
 

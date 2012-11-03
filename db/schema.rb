@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103104607) do
+ActiveRecord::Schema.define(:version => 20121103142348) do
 
   create_table "answers", :force => true do |t|
     t.date     "class_date"
@@ -41,24 +41,27 @@ ActiveRecord::Schema.define(:version => 20121103104607) do
   end
 
   create_table "instructors", :force => true do |t|
-    t.string   "login"
     t.string   "IP"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "instructors", ["login"], :name => "index_instructors_on_login", :unique => true
-  add_index "instructors", ["remember_token"], :name => "index_instructors_on_remember_token"
 
   create_table "students", :force => true do |t|
-    t.string   "login"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "students", ["login"], :name => "index_students_on_login", :unique => true
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "remember_token"
+    t.integer  "heir_id"
+    t.string   "heir_type"
+  end
+
+  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
