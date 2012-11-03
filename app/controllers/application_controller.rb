@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
   	def set_current_ip
-    	Instructor.IP = request.env['REMOTE_ADDR']
+    	Instructor.IP = request.env['action_display.remote_ip']
 	end
 
 end
