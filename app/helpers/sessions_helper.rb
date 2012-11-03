@@ -1,9 +1,9 @@
 module SessionsHelper
-	def sign_in(instructor)
-    	cookies.permanent[:remember_token] = instructor.remember_token
+	  def sign_in(instructor)
+    	
+      cookies[:remember_token] = { value: instructor.remember_token, expires: 3.hours.from_now.utc }
+                                
     	self.current_instructor = instructor
-      instructor.IP = request.remote_ip
-      self.current_instructor.IP = request.remote_ip
     end
 
     def signed_in?
