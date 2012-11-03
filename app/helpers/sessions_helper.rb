@@ -15,4 +15,9 @@ module SessionsHelper
   	def current_instructor
     	@current_instructor ||= Instructor.find_by_remember_token(cookies[:remember_token])
   	end
+
+  	def sign_out
+    	self.current_instructor = nil
+    	cookies.delete(:remember_token)
+  	end
 end

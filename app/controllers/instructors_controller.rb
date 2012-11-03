@@ -43,8 +43,8 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.new(params[:instructor])
 
     if @instructor.save
-      flash[:success] = "Welcome to the Sample App!"
-      
+      sign_in @instructor
+      flash[:success] = "Welcome to Cliqin!"
       redirect_to @instructor
 
       return
