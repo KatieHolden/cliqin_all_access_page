@@ -1,0 +1,192 @@
+
+
+csslint: There are 38 problems in custom.css.scss.
+
+custom.css.scss
+1: warning at line 1, col 1
+@import prevents parallel downloads, use <link> instead.
+@import "bootstrap";
+
+custom.css.scss
+2: error at line 3, col 1
+Unexpected token '$' at line 3, col 1.
+$grayMediumLight: #eaeaea;
+
+custom.css.scss
+3: error at line 3, col 26
+Expected LBRACE at line 3, col 26.
+$grayMediumLight: #eaeaea;
+
+custom.css.scss
+4: error at line 3, col 26
+Unexpected token ';' at line 3, col 26.
+$grayMediumLight: #eaeaea;
+
+custom.css.scss
+5: warning at line 3, col 2
+Don't use IDs in selectors.
+$grayMediumLight: #eaeaea;
+
+custom.css.scss
+6: error at line 5, col 1
+Unknown @ rule: @mixin.
+@mixin .box_sizing {
+
+custom.css.scss
+7: warning at line 31, col 9
+Heading (h1) should not be qualified.
+.center h1 {
+
+custom.css.scss
+8: warning at line 35, col 1
+Heading (h1) has already been defined.
+h1, h2, h3, h4, h5, h6 {
+
+custom.css.scss
+9: warning at line 39, col 1
+Heading (h1) has already been defined.
+h1 {
+
+custom.css.scss
+10: warning at line 46, col 1
+Heading (h2) has already been defined.
+h2 {
+
+custom.css.scss
+11: warning at line 60, col 1
+Don't use IDs in selectors.
+#logo {
+
+custom.css.scss
+12: error at line 70, col 3
+Expected RBRACE at line 70, col 3.
+  &:hover {
+
+custom.css.scss
+13: error at line 74, col 1
+Unexpected token '}' at line 74, col 1.
+}
+
+custom.css.scss
+14: error at line 79, col 25
+Expected RBRACE at line 79, col 25.
+  border-top: 1px solid $grayMediumLight;
+
+custom.css.scss
+15: error at line 80, col 10
+Unexpected token '$' at line 80, col 10.
+  color: $grayLight;
+
+custom.css.scss
+16: error at line 81, col 5
+Expected COLON at line 81, col 5.
+  a {
+
+custom.css.scss
+17: error at line 83, col 5
+Expected RBRACE at line 83, col 5.
+    &:hover { 
+
+custom.css.scss
+18: error at line 86, col 3
+Unexpected token '}' at line 86, col 3.
+  }  
+
+custom.css.scss
+19: error at line 93, col 8
+Expected COLON at line 93, col 8.
+    li {
+
+custom.css.scss
+20: error at line 97, col 3
+Unexpected token '}' at line 97, col 3.
+  }
+
+custom.css.scss
+21: error at line 98, col 1
+Unexpected token '}' at line 98, col 1.
+}
+
+custom.css.scss
+22: error at line 103, col 11
+Expected COLON at line 103, col 11.
+  section {
+
+custom.css.scss
+23: error at line 105, col 27
+Expected RBRACE at line 105, col 27.
+    border-top: 1px solid $grayLighter;
+
+custom.css.scss
+24: error at line 106, col 5
+Expected RBRACE at line 106, col 5.
+    &:first-child {
+
+custom.css.scss
+25: warning at line 115, col 5
+Heading (h1) has already been defined.
+    h1 {
+
+custom.css.scss
+26: error at line 121, col 3
+Unexpected token '}' at line 121, col 3.
+  }
+
+custom.css.scss
+27: error at line 122, col 1
+Unexpected token '}' at line 122, col 1.
+}
+
+custom.css.scss
+28: warning at line 127, col 3
+Using width with border can sometimes make elements larger than you expect.
+  border: 1px solid #bbb;
+
+custom.css.scss
+29: warning at line 129, col 3
+Using width with padding can sometimes make elements larger than you expect.
+  padding: 10px;
+
+custom.css.scss
+30: warning at line 130, col 3
+Use of !important
+  height: auto !important;
+
+custom.css.scss
+31: warning at line 135, col 1
+Don't use IDs in selectors.
+#error_explanation {
+
+custom.css.scss
+32: error at line 137, col 6
+Expected COLON at line 137, col 6.
+  ul {
+
+custom.css.scss
+33: error at line 141, col 1
+Unexpected token '}' at line 141, col 1.
+}
+
+custom.css.scss
+34: warning at line 143, col 1
+Rule is empty.
+.field_with_errors {
+
+custom.css.scss
+35: error at line 144, col 3
+Expected RBRACE at line 144, col 3.
+  @extend .control-group;
+
+custom.css.scss
+36: error at line 145, col 3
+Expected RBRACE at line 145, col 3.
+  @extend .error;
+
+custom.css.scss
+37: error at line 155, col 12
+Unexpected token '.' at line 155, col 12.
+  include: .box_sizing;
+
+custom.css.scss
+38: warning
+You have 4 h1s, 2 h2s defined in this stylesheet.
