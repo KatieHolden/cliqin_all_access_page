@@ -22,9 +22,9 @@ describe Instructor do
 
   	it { should respond_to(:login) }
   	it { should respond_to(:IP) }
-    it { should respond_to(:password_digest) }
-    it { should respond_to(:password) }
-    it { should respond_to(:password_confirmation) }
+    	it { should respond_to(:password_digest) }
+   	it { should respond_to(:password) }
+    	it { should respond_to(:password_confirmation) }
 
   	it { should be_valid }
 
@@ -65,7 +65,6 @@ describe Instructor do
       describe "with valid password" do
         it { should == found_instructor.authenticate(@instructor.password) }
       end
-
       describe "with invalid password" do
         let(:instructor_for_invalid_password) { found_instructor.authenticate("invalid") }
 
