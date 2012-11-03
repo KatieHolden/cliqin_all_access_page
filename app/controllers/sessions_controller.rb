@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
   	instructor = Instructor.find_by_login(params[:session][:login].downcase)
-    if instructor && instructor.authenticate(params[:session][:login])
+    if instructor && instructor.authenticate(params[:session][:password])
       sign_in instructor
       redirect_to instructor
     else
@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+  	sign_out
+    redirect_to root_url
   end
 
 end

@@ -10,9 +10,13 @@ AllAccessPage::Application.routes.draw do
 
   resources :instructors
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   root :to => "home#index"
 
   match '/instructorsignup', :to => 'instructors#new'
+  match '/instructorsignin',  to: 'sessions#new'
+  match '/instructorsignout', to: 'sessions#destroy', via: :delete
 
   match '/studentsignup', :to => 'students#new'
   # The priority is based upon order of creation:
