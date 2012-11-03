@@ -19,12 +19,9 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #fff;
-  }
+  color: #333;
   &:hover {
-    color: #fff;
+    color: #000;
   }
 }
 
