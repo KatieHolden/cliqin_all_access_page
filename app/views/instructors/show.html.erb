@@ -5,6 +5,20 @@
       <h1>
         <%= @instructor.login %>
       </h1>
+      
+      <% courses = Course.where(:instructor_ID => @instructor.id) %>
+      <li id="fat-menu" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Select a course <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">  
+          <% courses.each do |c| %>
+            <li><%= link_to c.course_name, c %></li>
+          <% end %>
+          </ul>
+        </li>
+
+      <%= link_to "Add course", new_course_path(:instructor_id => @instructor.id), :class => "btn btn-large btn-primary" %>
     </section>
   </aside>
 </div>

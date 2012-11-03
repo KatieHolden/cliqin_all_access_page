@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
-    @course = Course.new
+    @course = Course.new(instructor_ID: params[:instructor_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +41,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(params[:course])
+
 
     respond_to do |format|
       if @course.save
