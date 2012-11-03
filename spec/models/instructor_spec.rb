@@ -25,6 +25,8 @@ describe Instructor do
     it { should respond_to(:password_digest) }
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
+    it { should respond_to(:remember_token) }
+    it { should respond_to(:authenticate) }
 
   	it { should be_valid }
 
@@ -78,5 +80,10 @@ describe Instructor do
       before { @instructor.password = @instructor.password_confirmation = "a" * 5 }
       it { should be_invalid }
     end 
+
+    describe "remember token" do
+      before { @instructor.save }
+      it { @instructor.remember_token.should_not be_blank }
+    end
 
 end

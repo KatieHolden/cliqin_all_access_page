@@ -10,7 +10,7 @@ require 'spec_helper'
     		describe "with valid information" do
       			let(:instructor) { FactoryGirl.create(:instructor) }
       			before do
-        			fill_in "login",    with: instructor.login
+        			fill_in "Login",    with: instructor.login
         			fill_in "Password", with: instructor.password
         			click_button "Sign in"
       			end
@@ -26,6 +26,11 @@ require 'spec_helper'
 
 				it { should have_selector('h1',    text: 'Sign in') }      			
     			it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+
+    			describe "after visiting another page" do
+        			before { click_link "Home" }
+        			it { should_not have_selector('div.alert.alert-error') }
+      			end
     		end
   		end
 	end

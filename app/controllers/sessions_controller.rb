@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
   	instructor = Instructor.find_by_login(params[:session][:login].downcase)
     if instructor && instructor.authenticate(params[:session][:login])
-      sign_in instructor
+      instructorsign_in instructor
       redirect_to instructor
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
