@@ -1,0 +1,14 @@
+<% if @student.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@student.errors.count-1, "error") %>.
+    </div>
+    <ul>
+    <% @student.errors.full_messages.each do |msg| %>
+	<% if msg != 'Password digest can\'t be blank' %>
+      		<li>* <%= msg %></li>
+	<% end %>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
