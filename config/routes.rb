@@ -1,5 +1,11 @@
 AllAccessPage::Application.routes.draw do
 
+  get "static_pages/help"
+
+  get "static_pages/about"
+
+  get "static_pages/news"
+
   resources :answers
 
   resources :grades
@@ -10,13 +16,13 @@ AllAccessPage::Application.routes.draw do
 
   resources :instructors
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "home#index"
 
   match '/instructorsignup', :to => 'instructors#new'
-  match '/instructorsignin',  to: 'sessions#new'
-  match '/instructorsignout', to: 'sessions#destroy', via: :delete
+  match '/instructorsignin', :to => 'sessions#new'
+  match '/instructorsignout', :to => 'sessions#destroy', via: :delete
 
   match '/studentsignup', :to => 'students#new'
   # The priority is based upon order of creation:
