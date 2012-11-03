@@ -6,12 +6,8 @@ class ApplicationController < ActionController::Base
 
   protected
   	def set_current_ip
-    	Instructor.IP = request.env['REMOTE_HOST']
-    	request.env.each do |k,v|
-    		puts(k)
-    		puts(v)
-    		puts('\n\n\n')
-    	end
+    	Instructor.IP = request.env['HTTP_X_REAL_IP']
+    	
 	end
 
 end
