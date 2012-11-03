@@ -2,6 +2,8 @@ module SessionsHelper
 	def sign_in(instructor)
     	cookies.permanent[:remember_token] = instructor.remember_token
     	self.current_instructor = instructor
+      instructor.IP = request.remote_ip
+      self.current_instructor.IP = request.remote_ip
     end
 
     def signed_in?

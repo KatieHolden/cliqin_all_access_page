@@ -10,7 +10,8 @@
 #
 
 class Instructor < ActiveRecord::Base
-  attr_accessible :IP, :login, :password, :password_confirmation
+  attr_accessible :login, :password, :password_confirmation
+  cattr_accessor :IP
   has_secure_password
 
   before_save { |instructor| instructor.login = login.downcase }
