@@ -81,4 +81,10 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def launch
+    course = Course.find(params[:id])
+    course.update_attribute(:active, true)
+  end
+
 end

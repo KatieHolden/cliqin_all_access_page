@@ -10,5 +10,5 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :course_name, :instructor_ID
+  attr_accessible :course_name, :instructor_ID, :active
 end

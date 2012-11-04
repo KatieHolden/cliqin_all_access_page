@@ -27,7 +27,7 @@ AllAccessPage::Application.routes.draw do
   root :to => "home#index"
 
   match '/instructorsignup', :to => 'instructors#new'
-  match '/instructorsignin', :to => 'sessions#new'
+  match '/signin', :to => 'sessions#new'
   match '/instructorsignout', :to => 'sessions#destroy', via: :delete
 
   match '/studentsignup', :to => 'students#new'
