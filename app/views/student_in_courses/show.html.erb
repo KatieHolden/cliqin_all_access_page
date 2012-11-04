@@ -6,11 +6,6 @@
 	
 	<% instructor = Instructor.where(:id => c.instructor_ID) %>
 	<% instructor.each do |i| %>
-		<%= c.active %>
-		<%= i.login %>
-		<%= i.IP %>
-		<%= ip = request.env['action_dispatch.remote_ip'] %>
-		<%= i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %>
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %>
 			<%= link_to 'Participate in this Course!', '#' , :class => "btn btn-large btn-primary" %>
 		<% else %>
