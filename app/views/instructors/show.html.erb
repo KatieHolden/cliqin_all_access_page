@@ -4,6 +4,9 @@
     <section>
       <h1>
         <%= @instructor.login %>
+        <%= @instructor.IP %>
+        <% Instructor.update(@instructor.id, :IP => @instructor.IP) %> 
+
       </h1>
       
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
