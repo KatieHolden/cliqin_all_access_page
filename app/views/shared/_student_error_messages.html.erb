@@ -5,7 +5,7 @@
     </div>
     <ul>
     <% @student.errors.full_messages.each do |msg| %>
-	<% if msg != 'Password digest can\'t be blank' %>
+	<% if msg != 'Predecessor password digest can\'t be blank' %>
       		<li>* <%= msg %></li>
 	<% end %>
     <% end %>

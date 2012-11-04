@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20121103170015) do
     t.string   "heir_type"
   end
 
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
