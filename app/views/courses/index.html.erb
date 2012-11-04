@@ -12,6 +12,7 @@
 <% @courses.each do |course| %>
   <tr>
     <td><%= link_to course.course_name, course %></td>
+    <td><%= link_to 'Add', new_student_in_course_path(:course_id => course.id, :student_ID => params[:student_ID], :course_name => course.course_name), :class => "btn btn-large btn-primary" %></td>
   </tr>
 <% end %>
 </table>

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   acts_as_predecessor
 
   # attr_accessible :login, :password, :password_confirmation
-  # has_secure_password
+  has_secure_password
 
   # before_save { |user| user.login = login.downcase }
   # before_save :create_remember_token

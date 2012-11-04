@@ -1,5 +1,7 @@
 AllAccessPage::Application.routes.draw do
 
+  resources :student_in_courses
+
   resources :users
 
   get "static_pages/help"
@@ -19,6 +21,8 @@ AllAccessPage::Application.routes.draw do
   resources :instructors
 
   resources :sessions, :only => [:new, :create, :destroy]
+
+  resources :student_in_courses
 
   root :to => "home#index"
 
