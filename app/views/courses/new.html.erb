@@ -6,11 +6,11 @@
 
       <%= f.label :course_name %>
       <%= f.text_field :course_name %>
-      
+
       <%= hidden_field :course, :instructor_ID, {value: @course.instructor_ID} %>
       <%= f.submit "Create course", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
 
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', courses %>

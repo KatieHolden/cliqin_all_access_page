@@ -1,15 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div class="center hero-unit">
+<h1><%= @course.course_name %></h1>
 
-<p>
-  <b>Course name:</b>
-  <%= @course.course_name %>
-</p>
-
-<p>
-  <b>Instructor id:</b>
-  <%= @course.instructor_ID %>
-</p>
-
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Launch Session!', edit_course_path(:active => true), :class => "btn btn-large btn-primary" %>
+</div>

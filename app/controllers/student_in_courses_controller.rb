@@ -25,11 +25,15 @@ class StudentInCoursesController < ApplicationController
   # GET /student_in_courses/new.json
   def new
     @student_in_course = StudentInCourse.new
+  
+    
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student_in_course }
+
     end
+
   end
 
   # GET /student_in_courses/1/edit
@@ -42,6 +46,7 @@ class StudentInCoursesController < ApplicationController
   def create
     @student_in_course = StudentInCourse.new(params[:student_in_course])
 
+
     respond_to do |format|
       if @student_in_course.save
         format.html { redirect_to @student_in_course, notice: 'Student in course was successfully created.' }
@@ -50,7 +55,10 @@ class StudentInCoursesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @student_in_course.errors, status: :unprocessable_entity }
       end
+
+
     end
+
   end
 
   # PUT /student_in_courses/1
