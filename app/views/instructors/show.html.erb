@@ -4,9 +4,9 @@
     <section>
       <h1>
         <%= @instructor.login %>
+        <% Instructor.update(@instructor.id, :IP => request.env['action_dispatch.remote_ip']) %> 
         <%= @instructor.IP %>
-        <% Instructor.update(@instructor.id, :IP => @instructor.IP) %> 
-
+        
       </h1>
       
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
