@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
-    @course = Course.new(instructor_ID: params[:instructor_id])
+    @course = Course.new(instructor_ID: params[:instructor_ID])
 
     respond_to do |format|
       format.html # new.html.erb

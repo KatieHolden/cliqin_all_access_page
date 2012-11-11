@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   # GET /answers/new.json
   def new
-    @answer = Answer.new
+    @answer = Answer.new(course_ID: params[:course_ID])
 
     respond_to do |format|
       format.html # new.html.erb
