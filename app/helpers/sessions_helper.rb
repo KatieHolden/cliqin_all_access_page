@@ -17,6 +17,9 @@ module SessionsHelper
   	end
 
   	def sign_out
+      if self.current_user.heir.is_a?(Instructor)
+        Instructor.update(self.current_user.heir.id, :IP => nil)
+      end
     	self.current_user = nil
     	cookies.delete(:remember_token)
   	end

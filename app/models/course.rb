@@ -11,4 +11,6 @@
 
 class Course < ActiveRecord::Base
   attr_accessible :course_name, :instructor_ID, :active
+
+  validates :course_name, :presence => true
 end
