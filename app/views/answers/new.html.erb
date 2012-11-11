@@ -1,5 +1,24 @@
-<h1>New answer</h1>
+<h1>New Question Set</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', answers_path %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@answer) do |f| %>
+    	<div class="field">     
+     		<%= f.label :class_date %>
+     		<%= f.date_select :class_date %>
+    	</div>
+    	<div class="field">
+     		<%= f.label :total_points %>
+     		<%= f.number_field :total_points %>
+    	</div>
+    	<div class="field">
+     		<%= f.label :answers %> 
+     		<%= "**Submit answers in the form ABECDAB"  %>
+     		<%= f.text_field :answers %>
+    	</div>
+  
+    	<%= hidden_field :answer, :course_ID, {value: @answer.course_ID} %>
+    	<%= f.submit "Create Question Set", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -20,13 +20,13 @@
     <%= f.number_field :total_points %>
   </div>
   <div class="field">
-    <%= f.label :answers %><br />
+    <%= f.label :answers %> 
+    <%= "**Submit answers in the form ABECDAB"  %><br />
     <%= f.text_field :answers %>
   </div>
-  <div class="field">
-    <%= f.label :course_ID %><br />
-    <%= f.number_field :course_ID %>
-  </div>
+  
+  <%= hidden_field :answers, :course_ID, {value: @answer.course_ID} %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
