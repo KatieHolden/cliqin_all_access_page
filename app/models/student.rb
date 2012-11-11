@@ -17,9 +17,6 @@ class Student < ActiveRecord::Base
   before_save :create_remember_token
 
   validates :login, :presence => true
-  #validates_uniqueness_of :login
-
-  #{ :case_sensitive => false }
   validates :password, :presence => true, :length => { :minimum => 6 }
   validates :password_confirmation, :presence => true
 
