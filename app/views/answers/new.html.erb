@@ -4,11 +4,11 @@
   <div class="span6 offset3">
     <%= form_for(@answer) do |f| %>
     	<div class="field">     
-     		<%= f.label :class_date %>
+     		<%= f.label :date_of_lecture %>
      		<%= f.date_select :class_date %>
     	</div>
     	<div class="field">
-     		<%= f.label :total_points %>
+     		<%= f.label :number_of_questions %>
      		<%= f.number_field :total_points %>
     	</div>
     	<div class="field">

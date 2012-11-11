@@ -9,8 +9,10 @@
 		<%= c.active %>
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %>
 			<%= link_to 'Participate in this Course!', '#' , :class => "btn btn-large btn-primary" %>
+		<% elsif !c.active %>
+			<p> This course is not active. Please wait for your instructor to make it activate it.</p>
 		<% else %>
-			<p> You can not participate in this course at this time.</p>
+			<p> You are not on the appropriate wifi to participate in this class.</p>
 		<% end %>
 	<% end %>
 
