@@ -4,7 +4,8 @@
     <section>
       <h1>
         <%= @instructor.login %>
-        <% @instructor.update_attributes(:IP => request.env['action_dispatch.remote_ip']) %>
+        <% @instructor.update_attribute(:IP, request.env['action_dispatch.remote_ip'].to_s) %>
+    
       </h1>
       
       <% courses = Course.where(:instructor_ID => @instructor.id) %>

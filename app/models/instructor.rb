@@ -11,7 +11,6 @@
 
 class Instructor < ActiveRecord::Base
   acts_as_heir_of :user
-  cattr_accessor :IP
   attr_accessible :login, :IP, :password, :password_confirmation
   has_secure_password
 
@@ -29,3 +28,4 @@ class Instructor < ActiveRecord::Base
     end
 
 end
+
