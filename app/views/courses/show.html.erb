@@ -1,6 +1,5 @@
 <div class="center hero-unit">
 <h1><%= @course.course_name %></h1>
-<h2><%= @course.instructor_ID %></h2>
 
 <%= link_to 'New Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-large btn-primary" %>
 <%= link_to 'Launch Session!', edit_course_path, :class => "btn btn-large btn-primary" %>
