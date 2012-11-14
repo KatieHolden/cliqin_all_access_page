@@ -80,4 +80,9 @@ class GradesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def update_temp
+    @grade = Grade.find(params[:id])
+    grade.temp = params[:temp]
+  end
 end

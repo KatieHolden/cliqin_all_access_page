@@ -1,0 +1,12 @@
+<div class="center hero-unit">
+
+	
+	<%= link_to "A", {:method => 'update_temp',:temp => 'A' , :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+	<%= link_to "B", {:action => 'update_temp', :temp => 'B', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+	<%= link_to "C", {:action => 'update_temp', :temp => 'C', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+	<%= link_to "D", {:action => 'update_temp', :temp => 'D', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+	<%= link_to "E", {:action => 'update_temp', :temp => 'E', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+
+	<%= @grade.temp %>
+
+</div>

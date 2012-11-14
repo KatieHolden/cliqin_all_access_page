@@ -7,8 +7,10 @@
 	<% instructor = Instructor.where(:id => c.instructor_ID) %>
 	<% instructor.each do |i| %>
 		<%= c.active %>
+		<%= i.IP %> 
+		<%= request.env['action_dispatch.remote_ip'] %>
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %>
-			<%= link_to 'Participate in this Course!', '#' , :class => "btn btn-large btn-primary" %>
+			<%= link_to 'Participate in this Course!', new_grade_path(:course_ID => @student_in_course.course_ID, :student_ID => student_in_course.student_ID) , :class => "btn btn-large btn-primary" %>
 		<% elsif !c.active %>
 			<p> This course is not active. Please wait for your instructor to make it activate it.</p>
 		<% else %>

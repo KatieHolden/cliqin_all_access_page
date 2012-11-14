@@ -10,6 +10,8 @@ AllAccessPage::Application.routes.draw do
 
   get "static_pages/news"
 
+
+
   resources :answers
 
   resources :grades
@@ -25,6 +27,8 @@ AllAccessPage::Application.routes.draw do
   resources :student_in_courses
 
   root :to => "home#index"
+
+  match 'submission_form', :to => 'grades#submission_form'
 
   match '/instructorsignup', :to => 'instructors#new'
   match '/signin', :to => 'sessions#new'

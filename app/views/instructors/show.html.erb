@@ -4,7 +4,7 @@
     <section>
       <h1>
         <%= @instructor.login %>
-        <% @instructor.update_attribute(:IP, request.env['action_dispatch.remote_ip'].to_s) %>
+        <% @instructor.update_attributes(:IP => request.env['action_dispatch.remote_ip'].to_s) %>
     
       </h1>
       
@@ -25,19 +25,3 @@
   </aside>
 </div>
 
-
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Login:</b>
-  <%= @instructor.login %>
-</p>
-
-<p>
-  <b>Ip:</b>
-  <%= @instructor.IP %>
-</p>
-
-
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %> -->

@@ -11,6 +11,7 @@
 
 class Instructor < ActiveRecord::Base
   acts_as_heir_of :user
+  
   attr_accessible :login, :IP, :password, :password_confirmation
   has_secure_password
 
