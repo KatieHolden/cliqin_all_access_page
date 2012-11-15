@@ -1,18 +1,29 @@
+
 <div class="center hero-unit">
 
-  <%= @grade.current_question %>
+<%= @grade.current_question %>
   <%= @grade.class_date %>
+
+<div class="btn-group btn-group-vertical">
+
   
-  <%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
+  
+  <%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id), :class => "btn"  %>
+  <%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id), :class => "btn"  %>
+  <%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id), :class => "btn"  %>
+  <%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id), :class => "btn"  %>
+  <%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id), :class => "btn"  %>
 
-  <%= link_to "Next", edit_grade_path(:temp => 'Z', :id => @grade.id), :class => "btn btn-larg btn-primary" %>
+  
 
-  <%= @grade.answers %>
+  
 
   
  
+</div>
+
+<%= @grade.answers %>
+<%= link_to "Next", edit_grade_path(:temp => 'Z', :id => @grade.id), :class => "btn btn-larg btn-primary" %>
+
+
 </div>
