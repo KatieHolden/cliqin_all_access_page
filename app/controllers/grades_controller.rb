@@ -25,12 +25,14 @@ class GradesController < ApplicationController
   # GET /grades/new.json
   def new
     @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID])
-
+    @grade.save
+    redirect_to grade_path(@grade)
+    return
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @grade }
     end
-    redirect_to submission_form
+
   end
 
   # GET /grades/1/edit
