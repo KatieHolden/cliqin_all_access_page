@@ -24,7 +24,8 @@ class GradesController < ApplicationController
   # GET /grades/new
   # GET /grades/new.json
   def new
-    @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID])
+    @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID], 
+      :current_question => 1, :answers => 'ZZZZZZ', :class_date => Date.today)
     @grade.save
     redirect_to grade_path(@grade)
     return
@@ -38,6 +39,16 @@ class GradesController < ApplicationController
   # GET /grades/1/edit
   def edit
     @grade = Grade.find(params[:id])
+    if !params[:temp].nil?
+      @grade.answers[@grade.current_question-1] = params[:temp]
+      @grade.save
+    end
+
+    if params[:inc].to_s == 1.to_s
+      @grade.update_attributes(:current_question => @grade.current_question + 1)
+    end
+
+    redirect_to grade_path(@grade)
   end
 
   # POST /grades
@@ -84,8 +95,4 @@ class GradesController < ApplicationController
     end
   end
 
-  def update_temp
-    @grade = Grade.find(params[:id])
-    grade.temp = params[:temp]
-  end
 end
