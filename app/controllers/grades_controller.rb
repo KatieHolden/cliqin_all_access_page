@@ -30,6 +30,7 @@ class GradesController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @grade }
     end
+    redirect_to submission_form
   end
 
   # GET /grades/1/edit
