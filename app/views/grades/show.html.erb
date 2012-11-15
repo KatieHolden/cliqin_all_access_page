@@ -1,35 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="center hero-unit">
 
-<p>
-  <b>Answers:</b>
-  <%= @grade.answers %>
-</p>
+  
+  <%= link_to "A", {:method => 'update_temp', :temp => 'A', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+  <%= link_to "B", {:method => 'update_temp', :temp => 'B', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+  <%= link_to "C", {:method => 'update_temp', :temp => 'C', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+  <%= link_to "D", {:method => 'update_temp', :temp => 'D', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
+  <%= link_to "E", {:method => 'update_temp', :temp => 'E', :id => @grade.id}, :class => "btn btn-large btn-primary"  %>
 
-<p>
-  <b>Points:</b>
-  <%= @grade.points %>
-</p>
-
-<p>
-  <b>Total points:</b>
-  <%= @grade.total_points %>
-</p>
-
-<p>
-  <b>Class date:</b>
-  <%= @grade.class_date %>
-</p>
-
-<p>
-  <b>Student id:</b>
-  <%= @grade.student_ID %>
-</p>
-
-<p>
-  <b>Course id:</b>
   <%= @grade.course_ID %>
-</p>
-
-
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+  <%= @grade.student_ID %>
+  
+ 
+</div>
