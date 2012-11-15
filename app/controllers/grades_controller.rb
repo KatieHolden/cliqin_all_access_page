@@ -24,7 +24,7 @@ class GradesController < ApplicationController
   # GET /grades/new
   # GET /grades/new.json
   def new
-    @grade = Grade.new
+    @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID])
 
     respond_to do |format|
       format.html # new.html.erb

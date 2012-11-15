@@ -1,5 +1,15 @@
-<h1>New grade</h1>
 
-<%= render 'form' %>
+<div class="span6 offset3">
+    <%= form_for(@grade) do |f| %>
+    	<div class="field">     
+     		<%= f.label :select_todays_date %>
+     		<%= f.date_select :class_date %>
+    	</div>
+    	
+  
+    	<%= hidden_field :grade, :course_ID, {value: @grade.course_ID} %>
+    	<%= hidden_field :grade, :student_ID, {value: @grade.student_ID} %>
+    	<%= f.submit "Record My Answers", class: "btn btn-large btn-primary" %>
+    <% end %>
+</div>
 
-<%= link_to 'Back', grades_path %>
