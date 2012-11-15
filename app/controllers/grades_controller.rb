@@ -39,12 +39,11 @@ class GradesController < ApplicationController
   # GET /grades/1/edit
   def edit
     @grade = Grade.find(params[:id])
-    if !params[:temp].nil?
-      @grade.answers[@grade.current_question-1] = params[:temp]
-      @grade.save
-    end
-
-    if params[:inc].to_s == 1.to_s
+    
+    @grade.answers[@grade.current_question-1] = params[:temp]
+    @grade.save
+    
+    if params[:temp] == 'Z'
       @grade.update_attributes(:current_question => @grade.current_question + 1)
     end
 

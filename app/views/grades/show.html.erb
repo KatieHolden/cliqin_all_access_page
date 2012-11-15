@@ -3,13 +3,13 @@
   <%= @grade.current_question %>
   <%= @grade.class_date %>
   
-  <%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id, :inc => 0), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id, :inc => 0), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id, :inc => 0), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id, :inc => 0), :class => "btn btn-large btn-primary"  %>
-  <%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id, :inc => 0), :class => "btn btn-large btn-primary"  %>
+  <%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
+  <%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
+  <%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
+  <%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
+  <%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id), :class => "btn btn-large btn-primary"  %>
 
-  <%= link_to "Next", edit_grade_path(:temp => params[:temp], :id => @grade.id, :inc => 1), :class => "btn btn-larg btn-primary" %>
+  <%= link_to "Next", edit_grade_path(:temp => 'Z', :id => @grade.id), :class => "btn btn-larg btn-primary" %>
 
   <%= @grade.answers %>
 
