@@ -36,20 +36,23 @@ class GradesController < ApplicationController
 
   end
 
+  def next
+    @grade = Grade.find(params[:id])
+    @grade.update_attributes(:current_question => @grade.current_question + 1)
+    redirect_to grade_path(@grade)
+  end
+
   # GET /grades/1/edit
   def edit
     @grade = Grade.find(params[:id])
+    logger.info @grade.inspect
 
-    new_answers = "ZZZZZ";
+    new_answers = @grade.answers.dup
     new_answers[@grade.current_question - 1] = params[:temp]
     
     @grade.update_attributes(:answers => new_answers)
     #@grade.answers[1] = params[:temp]
     #@grade.save
-    
-    if params[:temp] == 'Z'
-      @grade.update_attributes(:current_question => @grade.current_question + 1)
-    end
 
     redirect_to grade_path(@grade)
   end

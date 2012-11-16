@@ -2,6 +2,16 @@ module SessionsHelper
 	  def sign_in(user)
       cookies[:remember_token] = { value: user.remember_token, expires: 3.hours.from_now.utc }                         
     	self.current_user = user
+
+      if self.current_user.is_a?(Instructor)
+        return
+      end
+      if self.current_user.heir.is_a?(Instructor)
+        self.current_user.heir.IP = request.env['action_dispatch.remote_ip'].to_s
+
+        # The `!` makes it throw an exception when the save does not work
+        self.current_user.heir.save!
+      end
     end
 
     def signed_in?

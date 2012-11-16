@@ -14,7 +14,11 @@ AllAccessPage::Application.routes.draw do
 
   resources :answers
 
-  resources :grades
+  resources :grades do
+    member do
+      get :next
+    end
+  end
 
   resources :students
 

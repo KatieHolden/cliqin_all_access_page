@@ -23,7 +23,7 @@
 </div>
 
 <%= @grade.answers %>
-<%= link_to "Next", edit_grade_path(:temp => 'Z', :id => @grade.id), :class => "btn btn-larg btn-primary" %>
+<%= link_to "Next", next_grade_path(:id => @grade.id), :class => "btn btn-larg btn-primary" %>
 
 
 </div>

@@ -14,10 +14,11 @@ class InstructorsController < ApplicationController
   # GET /instructors/1.json
   def show
     @instructor = Instructor.find(params[:id])
-    @instructor.IP = request.env['action_dispatch.remote_ip'].to_s
+   @instructor.IP = request.env['action_dispatch.remote_ip'].to_s
 
     # The `!` makes it throw an exception when the save does not work
     @instructor.save!
+  
 
     respond_to do |format|
       format.html # show.html.erb
