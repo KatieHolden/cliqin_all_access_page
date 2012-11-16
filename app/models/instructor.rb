@@ -11,7 +11,6 @@
 
 class Instructor < ActiveRecord::Base
   acts_as_heir_of :user
-  #cattr_accessor :IP
   attr_accessible :login, :IP, :password, :password_confirmation
   has_secure_password
 
@@ -19,8 +18,8 @@ class Instructor < ActiveRecord::Base
   before_save :create_remember_token
 
   validates :login, :presence => true #, :uniqueness => { :case_sensitive => false }
-  validates :password, :presence => true, :length => { :minimum => 6 }
-  validates :password_confirmation, :presence => true
+  validates :password, :presence => true, :length => { :minimum => 6 }, :on => :create
+  validates :password_confirmation, :presence => true, :on => :create
 
   private
 

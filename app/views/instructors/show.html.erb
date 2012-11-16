@@ -3,9 +3,7 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @instructor.login %>
-        <% @instructor.update_attributes(:IP => request.env['action_dispatch.remote_ip']) %>
-    
+        <%= @instructor.login %>    
       </h1>
       
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
