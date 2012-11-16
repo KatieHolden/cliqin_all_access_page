@@ -25,7 +25,7 @@ class GradesController < ApplicationController
   # GET /grades/new.json
   def new
     @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID], 
-      :current_question => 1, :answers => 'ZZZZZZ', :class_date => Date.today)
+      :current_question => 1, :answers => 'ZZZZZZ', :class_date => Date.today, :total_points => params[:total_points])
     @grade.save
     redirect_to grade_path(@grade)
     return

@@ -24,7 +24,7 @@ class StudentInCoursesController < ApplicationController
   # GET /student_in_courses/new
   # GET /student_in_courses/new.json
   def new
-    @student_in_course = StudentInCourse.new
+    @student_in_course = StudentInCourse.new(:course_ID => params[:course_id], :student_ID => params[:student_ID])
   
     
 
