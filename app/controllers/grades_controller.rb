@@ -16,29 +16,65 @@ class GradesController < ApplicationController
     @grade = Grade.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @grade }
+       format.html # show.html.erb
+       format.json { render :json => @grade }
     end
+
   end
 
   # GET /grades/new
   # GET /grades/new.json
   def new
     @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID], 
-      :current_question => 1, :answers => 'ZZZZZZ', :class_date => Date.today, :total_points => params[:total_points])
+      :current_question => 1, :points => 0, :class_date => Date.today, :total_points => params[:total_points])
+    
+    temp_ans = []
+    i = 0
+
+    while i.to_s < params[:total_points] 
+       temp_ans.push('Z')
+       i += 1 
+    end
+    @grade.answers = temp_ans.join
     @grade.save
+
     redirect_to grade_path(@grade)
     return
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @grade }
-    end
+    
+    #respond_to do |format|
+     # format.html # new.html.erb
+      #format.json { render :json => @grade }
+    #end
 
   end
 
   def next
     @grade = Grade.find(params[:id])
     @grade.update_attributes(:current_question => @grade.current_question + 1)
+
+    if(@grade.current_question == @grade.total_points + 1)
+      redirect_to calculate_grade_path(:id => @grade.id)
+    else
+      redirect_to grade_path(@grade)
+    end
+  end
+
+  def calculate
+    @grade = Grade.find(params[:id])
+
+    answer = Answer.where(:course_ID => @grade.course_ID, :class_date => @grade.class_date)
+    i = 0
+
+    answer.each do |a|
+      while i < a.total_points
+        if @grade.answers[i] == a.answers[i]
+          @grade.points += 1
+          @grade.save
+        end
+        i += 1
+      end
+    end
+
     redirect_to grade_path(@grade)
   end
 
@@ -51,8 +87,6 @@ class GradesController < ApplicationController
     new_answers[@grade.current_question - 1] = params[:temp]
     
     @grade.update_attributes(:answers => new_answers)
-    #@grade.answers[1] = params[:temp]
-    #@grade.save
 
     redirect_to grade_path(@grade)
   end

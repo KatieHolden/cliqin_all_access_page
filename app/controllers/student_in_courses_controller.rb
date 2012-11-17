@@ -24,14 +24,24 @@ class StudentInCoursesController < ApplicationController
   # GET /student_in_courses/new
   # GET /student_in_courses/new.json
   def new
-    @student_in_course = StudentInCourse.new(:course_ID => params[:course_id], :student_ID => params[:student_ID])
-  
-    
+    #temp = StudentInCourse.where(:course_ID => params[:course_ID], :student_ID => params[:student_ID])
+    #compare = true
+
+    #temp.each do |t|
+      #compare = false
+      #@student_in_course = t
+    #end
+
+    #if compare == true
+      @student_in_course = StudentInCourse.new(:course_ID => params[:course_id], :student_ID => params[:student_ID], 
+        :course_name => params[:course_name])
+    #end
+   
+    @student_in_course.save
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student_in_course }
-
     end
 
   end
