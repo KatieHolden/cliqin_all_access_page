@@ -1,11 +1,12 @@
 <% provide(:title, @instructor.login) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
+<div class="row" align = "left">
+    <section >
+      <h1 align = "left">
+		My Profile<br>
+     	<h2> 
         <%= @instructor.login %>    
+	 	</h2>
       </h1>
-      
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
       <li id="fat-menu" class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -18,8 +19,8 @@
           </ul>
         </li>
 
-      <%= link_to "Add course", new_course_path(:instructor_ID => @instructor.id), :class => "btn btn-large btn-primary" %>
+		<%= link_to "Add course", new_course_path(:instructor_ID => \
+				@instructor.id), :class => "btn btn-large btn-primary" %>
     </section>
-  </aside>
 </div>
 

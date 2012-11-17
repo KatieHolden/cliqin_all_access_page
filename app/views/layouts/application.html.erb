@@ -43,15 +43,17 @@
         </div>
       </div>
     </header>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-    </div>
-
+	<body>
+		<div class = "wrapper">
+    		<div class="container">
+				<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>"><%= value %></div>
+				<% end %>
+				<%= yield %>
+			</div>
+			<div class="push"><!--//--></div>
+		</div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
-
   </body>
 </html>
