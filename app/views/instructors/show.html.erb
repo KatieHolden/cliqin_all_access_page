@@ -1,26 +1,33 @@
 <% provide(:title, @instructor.login) %>
-<div class="row" align = "left">
-    <section >
-      <h1 align = "left">
-		My Profile<br>
-     	<h2> 
+<div>
+      <h1>
         <%= @instructor.login %>    
-	 	</h2>
       </h1>
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
-      <li id="fat-menu" class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Select a course <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">  
+	  <li class = "nav-header">Your Registered Courses </li>
+	<div class="tabbable tabs-right" >
+	  <ul class="nav nav-tabs">
+		 <li class="active"> <a href = "#tab1" data-toggle="tab"> My
+						  Profile</a></li>
           <% courses.each do |c| %>
-            <li><%= link_to c.course_name, c %></li>
+				  <li> <a data-toggle="tab" href=#<%=c.course_name%> > c.course_name</a></li>
           <% end %>
-          </ul>
-        </li>
-
-		<%= link_to "Add course", new_course_path(:instructor_ID => \
-				@instructor.id), :class => "btn btn-large btn-primary" %>
-    </section>
+		  <li> <a data-toggle="tab" href="Add course"></a></li>
+	  </ul>
+	  <div class = "tab-content">
+			 <div class="tab-pane active" id="tab1">
+				<p> Im in our Profile page! </p>
+			</div>
+			 <div class="tab-pane active" id="c.course_name">
+				<p> Im in EECS497! </p>
+			</div>
+			 <div class="tab-pane active" id="tab3">
+				<p> Im in ASTRO! </p>
+			</div>
+			 <div class="tab-pane active" id="tab4">
+				<p> Im in creating a class! </p>
+			</div>
+	  </div>
+	<div>
 </div>
 
