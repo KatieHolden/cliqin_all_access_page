@@ -13,6 +13,13 @@
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", instructorsignup_path %></p>
+	<table cellSpacing=1 cellPadding=1 width="100%" align="center" >
+		<tr>
+		<td id = "Instructor Signup"> New verified Instructor?<br> <%= link_to\
+			"Sign up here", instructorsignup_path, class: "btn btn-primary"  %> </td>
+		<td id = "Student Signup"> New Student?<br> <%= link_to\
+			"Sign up here", studentsignup_path , class: "btn btn-primary" %> </td>
+		</tr>
+	</table>
   </div>
 </div>
