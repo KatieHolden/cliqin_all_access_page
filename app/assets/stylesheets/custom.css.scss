@@ -70,11 +70,12 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 0px;
-  border-top: 1px solid $grayMediumLight;
+  border-top: 1px solid $grayLight;
   color: $grayLight;
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: $grayMediumLight;
   a {
     color: $gray;
     &:hover { 
@@ -107,10 +108,10 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -63px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
 }
 .footer, .push {
-  height: 63px; /* .push must be the same height as .footer */
+  height: 40px; /* .push must be the same height as .footer */
 }
 
 .wrapper > .container {
