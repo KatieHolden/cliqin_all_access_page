@@ -1,6 +1,12 @@
-<div class="center hero-unit">
-<h1><%= @course.course_name %></h1>
 
-<%= link_to 'New Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-large btn-primary" %>
-<%= link_to 'Launch Session!', edit_course_path, :class => "btn btn-large btn-primary" %>
+<div class="center hero-unit">
+	<h1><%= @course.course_name %></h1>
+
+	<%= link_to 'New Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-large btn-primary" %>
+	<% if  @course.answer_set_for_today?(@course.id) %>
+		<%= link_to 'Launch Session!', edit_course_path, :class => "btn btn-large btn-primary" %>
+	<% else %>
+		<p>To launch this course create a question set for today.</p> 
+	<% end %>
+	
 </div>

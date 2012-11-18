@@ -11,9 +11,14 @@
 
 <% @courses.each do |course| %>
   <tr>
-    <td><%= link_to course.course_name, course %></td>
-    <td><%= course.active %></td>
-    <td><%= link_to 'Add', new_student_in_course_path(:course_id => course.id, :student_ID => params[:student_ID], :course_name => course.course_name), :class => "btn btn-large btn-primary" %></td>
+    <!-- removing this link for now maybe in the future it could link to a course page for students -->
+    <!-- <td><%= link_to course.course_name, course %></td> -->
+    <td><%= course.course_name %>
+    <% if course.is_enrolled?(params[:student_ID], course.course_name) %>
+      <td>added</td>
+    <% else %>
+     <td><%= link_to 'Add', new_student_in_course_path(:course_id => course.id, :student_ID => params[:student_ID], :course_name => course.course_name), :class => "btn btn-large btn-primary" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
