@@ -23,11 +23,13 @@
 			</div>
             <% courses.each do |c| %>
 			<div class="tab-pane" id="<%=c.course_name%>">
-				<%# render  %>
+					<%= render :partial => 'courses/show', :locals =>\
+							{:course=>c} %>
 			</div>
 			<% end %>
 			 <div class="tab-pane" id="add_course">
-					 <%= render :template => "courses/new" %>
+				<%= render :partial => 'courses/new', :locals =>\
+					{:course=>Course.new(:instructor_ID => @instructor.id)} %>
 			</div>
 	  </div>
 	<div>
