@@ -1,8 +1,9 @@
+<!-- app/views/courses/new.html.erb-->
 <h1>New course</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@course) do |f| %>
+		  <%= form_for @course = Course.new(:instructor_ID => @instructor.id) do |f| %>
 
       <%= f.label :course_name %>
       <%= f.text_field :course_name %>

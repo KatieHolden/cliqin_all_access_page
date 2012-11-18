@@ -1,31 +1,33 @@
+<!-- app/views/instructors/show.html.erb-->
+
+
 <% provide(:title, @instructor.login) %>
 <div>
       <h1>
         <%= @instructor.login %>    
       </h1>
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
-	  <li class = "nav-header">Your Registered Courses </li>
 	<div class="tabbable tabs-right" >
 	  <ul class="nav nav-tabs">
 		 <li class="active"> <a href = "#tab1" data-toggle="tab"> My
 						  Profile</a></li>
           <% courses.each do |c| %>
-				  <li> <a data-toggle="tab" href=#<%=c.course_name%> > c.course_name</a></li>
+				  <li> <a data-toggle="tab" href="#<%=c.course_name%>">
+						  <%=c.course_name%></a></li>
           <% end %>
-		  <li> <a data-toggle="tab" href="Add course"></a></li>
+		  <li> <a data-toggle="tab" href="#add_course"> Add Course</a></li>
 	  </ul>
 	  <div class = "tab-content">
 			 <div class="tab-pane active" id="tab1">
 				<p> Im in our Profile page! </p>
 			</div>
-			 <div class="tab-pane active" id="c.course_name">
-				<p> Im in EECS497! </p>
+            <% courses.each do |c| %>
+			<div class="tab-pane" id="<%=c.course_name%>">
+				<%# render  %>
 			</div>
-			 <div class="tab-pane active" id="tab3">
-				<p> Im in ASTRO! </p>
-			</div>
-			 <div class="tab-pane active" id="tab4">
-				<p> Im in creating a class! </p>
+			<% end %>
+			 <div class="tab-pane" id="add_course">
+					 <%= render :template => "courses/new" %>
 			</div>
 	  </div>
 	<div>
