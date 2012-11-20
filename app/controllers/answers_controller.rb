@@ -25,11 +25,31 @@ class AnswersController < ApplicationController
   # GET /answers/new.json
   def new
     @answer = Answer.new(course_ID: params[:course_ID])
+    
+    
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @answer }
     end
+  end
+
+  def set
+    @answer = Answer.find(params[:id])
+    
+  end
+
+  def change
+    @answer = Answer.find(params[:id])
+    i = 0
+    temp_ans = ""
+    while i.to_s < @answer.total_points.to_s
+       temp_ans += params[i.to_s]
+       i += 1 
+    end
+    @answer.answers = temp_ans
+    @answer.save
+    redirect_to @answer
   end
 
   # GET /answers/1/edit
@@ -41,7 +61,9 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(params[:answer])
-
+    @answer.save
+    redirect_to set_answer_path(@answer)
+    return
     respond_to do |format|
       if @answer.save
         format.html { redirect_to @answer, :notice => 'Answer was successfully created.' }

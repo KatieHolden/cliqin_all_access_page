@@ -11,11 +11,6 @@
      		<%= f.label :number_of_questions %>
      		<%= f.number_field :total_points %>
     	</div>
-    	<div class="field">
-     		<%= f.label :answers %> 
-     		<%= "**Submit answers in the form ABECDAB"  %>
-     		<%= f.text_field :answers %>
-    	</div>
   
     	<%= hidden_field :answer, :course_ID, {value: @answer.course_ID} %>
     	<%= f.submit "Create Question Set", class: "btn btn-large btn-primary" %>

@@ -12,7 +12,17 @@ AllAccessPage::Application.routes.draw do
 
 
 
-  resources :answers
+  resources :answers do
+    member do
+      get :set
+    end
+
+    member do
+      post :change
+    end
+  end
+
+  
 
   resources :grades do
     member do

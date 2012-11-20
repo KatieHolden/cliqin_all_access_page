@@ -43,7 +43,7 @@ class GradesController < ApplicationController
     
     #respond_to do |format|
      # format.html # new.html.erb
-      #format.json { render :json => @grade }
+     # format.json { render :json => @grade }
     #end
 
   end

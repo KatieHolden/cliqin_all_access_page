@@ -1,0 +1,18 @@
+<div>
+	<%= @answer.id %>
+	<%= @answer.total_points %>
+	<form action="change" method="post">
+	<% for i in 0...@answer.total_points %>
+		<p><%= i + 1 %></p>
+		<% num = i.to_s %>
+		<input type="radio" name=<%= i.to_s %> value="A">A
+		<input type="radio" name=<%= i.to_s %> value="B">B
+		<input type="radio" name=<%= i.to_s %> value="C">C
+		<input type="radio" name=<%= i.to_s %> value="D">D
+		<input type="radio" name=<%= i.to_s %> value="E">E
+	
+	<% end %>
+	
+	<input type="submit" value="Submit">
+	</form>
+</div>
