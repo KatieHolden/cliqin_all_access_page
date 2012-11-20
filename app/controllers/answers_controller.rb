@@ -49,7 +49,7 @@ class AnswersController < ApplicationController
     end
     @answer.answers = temp_ans
     @answer.save
-    redirect_to @answer
+    redirect_to course_path(:id => @answer.course_ID)
   end
 
   # GET /answers/1/edit
