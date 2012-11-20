@@ -9,49 +9,51 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <header class="navbar navbar-fixed-top">
+    <header class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    '/' %></li>
-              <li><%= link_to "Help",   '/static_pages/help' %></li>
-
-              <% if signed_in? %>
-                <li id="fat-menu" class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Account <b class="caret"></b>
-                  </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Profile", current_user %></li>
-                  <li><%= link_to "Settings", '#' %></li>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to "Sign out", instructorsignout_path, method: "delete" %>
-                  </li>
-                </ul>
-                </li>
+			<a class="brand" href = "#">CliqMeIn</a>
+			<div class="nav-collapse collapse">
+			  <ul class="nav">
+				 <li class="active"><%= link_to "Home",    '/' %></li>
+                 <li><%= link_to "About",   '/static_pages/about' %></li>
+                <% if signed_in? %>
+				 <li><%= link_to "My Profile", current_user %></li>
+			   </ul>
+			  <ul class = "nav pull-right">
+                 <li>
+                   <%= link_to "Sign out", instructorsignout_path, method: "delete" %>
+                 </li>
+			  </ul>
             <% else %>
-              <li><%= link_to "Sign in", signin_path %></li>
+              	 <li><%= link_to "Student Sign Up", studentsignup_path %></li>
+                 <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
+                 <li><%= link_to "Sign in", signin_path %></li>
+			  </ul>
+              <form class="navbar-form pull-right">
+			  	<input class = "span2" type = "text" placeholder = "login">
+			  	<input class = "span2" type = "password" placeholder ="password">
+				<button type= "submit" class="btn">Sign in </button>
+				</form>
             <% end %>
-
-              <li><%= link_to "Student Sign Up", studentsignup_path %></li>
-              <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
-            </ul>
-          </nav>
+		  </div>
         </div>
       </div>
     </header>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-    </div>
-
+	<body>
+		<div class = "wrapper">
+    		<div class="container">
+				<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>"><%= value %></div>
+				<% end %>
+				<%= yield %>
+			</div>
+			<div class="push"><!--//--></div>
+		</div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
 
+
   </body>
 </html>
+

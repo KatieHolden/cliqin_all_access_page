@@ -1,13 +1,16 @@
 <% if @student.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@student.errors.count-1, "error") %>.
+			<!--The following are errors we DONT want printed-->
+    <% @student.errors.delete(:password_digest)%>
+    <% @student.errors.delete(:"predecessor.password_digest")%>
+			<!--END of the error messages we DONT want printed-->
+
+      The form contains <%= pluralize(@student.errors.count, "error") %>.
     </div>
     <ul>
     <% @student.errors.full_messages.each do |msg| %>
-	<% if msg != 'Predecessor password digest can\'t be blank' %>
       		<li>* <%= msg %></li>
-	<% end %>
     <% end %>
     </ul>
   </div>

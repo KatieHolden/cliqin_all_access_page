@@ -2,26 +2,44 @@
 
 <% provide(:title, @student.login) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @student.login %>
-      </h1>
-      
+ <div class = "span3">
+		 <h1 align = center > <%= @student.login %></h1>
+	  <a href="#" class="thumbnail">
+			  <img src = "http://cfe.umich.edu/img/people/elliot_soloway.jpg" alt="">
+	   </a>
+	   </div>
+	   <div class = "span7 offset1">
+	    <h1 align=left>My Account</h1>
       <% studentincourses = StudentInCourse.where(:student_ID => @student.id) %>
-      <li id="fat-menu" class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Select a course <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">  
+	  <div class="tabbable tabs-right" >
+	    <ul class = "nav nav-tabs">
+			<li class="active"> <a href = "#tab1" data-toggle="tab">My Profile
+				</a></li>
           <% studentincourses.each do |c| %>
-            <li><%= link_to c.course_name, c %></li>
+				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
+						  <%= c.course_name%></a></li>
           <% end %>
+		  <li><a data-toggle="tab"><%= link_to "Add Course", courses_path(:student_ID =>\
+				  @student.id) %></a></li>
           </ul>
-        </li>
+		  <div class = "tab-content">
+				  <div class="tab-pane active" id="tab1">
+						 <p> I'm in our Profile page! </p>
+				  </div>
+				  <!--Rendering each of the course activation pages-->
+				  <% studentincourses.each do |c| %>
+				  <div class="tab-pane" id="<%=c.course_name%>">
+						  <%= render :partial => 'student_in_courses/show', :locals =>\
+								  {:student_in_course => c} %>
+				  </div>
+		  <%end%>
+		  <!--Rendering the course creation page -->
+		 </div>
+    	</div>
+    </div>
+   </div>
+   </div>
+ </div>
 
-      <%= link_to "Add course", courses_path(:student_ID => @student.id), :class => "btn btn-large btn-primary" %>
-    </section>
-  </aside>
-</div>
-<%= link_to 'Back', students_path %>
+
+

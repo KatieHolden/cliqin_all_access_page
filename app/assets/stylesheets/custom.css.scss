@@ -69,9 +69,13 @@ p {
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
+  padding-top: 0px;
+  border-top: 1px solid $grayLight;
   color: $grayLight;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $grayMediumLight;
   a {
     color: $gray;
     &:hover { 
@@ -104,10 +108,14 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
 }
 .footer, .push {
-  height: 142px; /* .push must be the same height as .footer */
+  height: 40px; /* .push must be the same height as .footer */
+}
+
+.wrapper > .container {
+		padding-top:60px;
 }
 
 
@@ -132,7 +140,12 @@ aside {
       letter-spacing: -1px;
       margin-bottom: 3px;
     }
+	h2{
+	   font-size: 1.2em;
+	   text-align: left;
+	}
   }
+
 }
 
 /* forms */

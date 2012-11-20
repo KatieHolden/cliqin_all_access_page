@@ -1,25 +1,44 @@
+<!-- app/views/instructors/show.html.erb-->
+
 <% provide(:title, @instructor.login) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @instructor.login %>    
-      </h1>
-      
+<div class = "row">
+	<div class="span3">
+	  <h1 align=center ><%= @instructor.login %></h1>
+	  <a href="#" class="thumbnail">
+		<img src = "http://cfe.umich.edu/img/people/elliot_soloway.jpg" alt="">
+	  </a>
+	</div>
+	<div class = "span7 offset1">
+  	  <h1 align=left>My Account</h1>
       <% courses = Course.where(:instructor_ID => @instructor.id) %>
-      <li id="fat-menu" class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Select a course <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">  
-          <% courses.each do |c| %>
-            <li><%= link_to c.course_name, c %></li>
-          <% end %>
-          </ul>
-        </li>
-
-      <%= link_to "Add course", new_course_path(:instructor_ID => @instructor.id), :class => "btn btn-large btn-primary" %>
-    </section>
-  </aside>
+	  <div class="tabbable tabs-right" >
+	  	<ul class="nav nav-tabs">
+			 <li class="active"> <a href = "#tab1" data-toggle="tab"> My
+						  Profile</a></li>
+              <% courses.each do |c| %>
+			  <li> <a data-toggle="tab" href="#<%=c.course_name%>">
+				  <%=c.course_name%></a></li>
+              <% end %>
+		      <li> <a data-toggle="tab" href="#add_course"> Add Course</a></li>
+	    </ul>
+	    <div class = "tab-content">
+		  <div class="tab-pane active" id="tab1">
+			<p> Im in our Profile page! </p>
+		  </div>
+			<!--Rendering each of the course activation pages-->
+            <% courses.each do |c| %>
+			<div class="tab-pane" id="<%=c.course_name%>">
+					<%= render :partial => 'courses/show', :locals =>\
+							{:course=>c} %>
+			</div>
+			<% end %>
+			<!--Rendering the course creation page-->
+			 <div class="tab-pane" id="add_course">
+				<%= render :partial => 'courses/new', :locals =>\
+					{:course=>Course.new(:instructor_ID => @instructor.id)} %>
+			</div>
+	  </div>
+	<div>
+  </div>
 </div>
-
+</div>
