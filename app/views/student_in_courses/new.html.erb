@@ -5,8 +5,10 @@
 <%= link_to 'Add more courses', courses_path, :class => "btn btn-large btn-primary" %>
 
 <!-- we could think about eliminating this button - not very consistent or necessary anymore -->
-<%= link_to 'Show my profile', student_path(:id => params[:student_ID]), :class => "btn btn-large btn-primary" %>
+<%= link_to 'Show my profile', student_path(:id => params[:student_ID]),\
+		:class => "btn btn-large btn-primary" %>
 
-<%= link_to 'Go to this course', student_in_course_path(:id => @student_in_course.id), :class => "btn btn-large btn-primary" %>
+<%= link_to 'Go to this course', student_in_course_path(:id =>@student_in_course.id),\
+		:class => "btn btn-large btn-primary" %>
 
 </div>
