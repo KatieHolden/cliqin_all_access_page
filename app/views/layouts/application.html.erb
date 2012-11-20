@@ -16,30 +16,19 @@
 			<div class="nav-collapse collapse">
 			  <ul class="nav">
 				 <li class="active"><%= link_to "Home",    '/' %></li>
-                 <li><%= link_to "Help",   '/static_pages/help' %></li>
-              	 <li><%= link_to "Student Sign Up", studentsignup_path %></li>
-                 <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
-                 <li><%= link_to "Sign in", signin_path %></li>
+                 <li><%= link_to "About",   '/static_pages/about' %></li>
                 <% if signed_in? %>
-                 <li class="dropdown" id="fatmenu">
-                 	<a class="dropdown-toggle" data-toggle="dropdown" href="#fatmenu">
-                    Account <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-					  <li><%= link_to "Profile", current_user %></li>
-					  <li><%= link_to "Settings", '#' %></li>
-					  <li class="divider"></li>
-					  <li class="nav-header">
-						<%= link_to "Sign out", instructorsignout_path, method: "delete" %>
-					  </li>
-					</ul>
-                </li>
-			  </ul>
+				 <li><%= link_to "My Profile", current_user %></li>
+			   </ul>
 			  <ul class = "nav pull-right">
                  <li>
                    <%= link_to "Sign out", instructorsignout_path, method: "delete" %>
                  </li>
 			  </ul>
             <% else %>
+              	 <li><%= link_to "Student Sign Up", studentsignup_path %></li>
+                 <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
+                 <li><%= link_to "Sign in", signin_path %></li>
 			  </ul>
               <form class="navbar-form pull-right">
 			  	<input class = "span2" type = "text" placeholder = "login">
@@ -63,6 +52,8 @@
 		</div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
+
+
   </body>
 </html>
 
