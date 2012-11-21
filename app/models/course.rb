@@ -16,7 +16,7 @@ class Course < ActiveRecord::Base
 
   # checks to see is a student is has previously enrolled in a course
   def is_enrolled?(student_id, course_name)
-  	student_in_courses = StudentInCourse.where(:student_id => student_id)
+  	student_in_courses = StudentInCourse.where(:student_ID => student_id)
   	student_in_courses.each do |c|
   		if c.course_name == course_name
   			return true
@@ -26,7 +26,7 @@ class Course < ActiveRecord::Base
   end
 
   def answer_set_for_today?(course_id)
-  	answer_set = Answer.where(:course_id => course_id)
+  	answer_set = Answer.where(:course_ID => course_id)
 
   	answer_set.each do |a|
   		if a.class_date == Date.today
