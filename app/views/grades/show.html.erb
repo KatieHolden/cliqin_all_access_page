@@ -1,6 +1,9 @@
 
 <div class="center hero-unit">
 
+<h2> <%= params[:course_name] %> </h2>
+<h3> <%= @grade.class_date %> </h3>
+
 <%= @grade.current_question %> </br>
 <%= @grade.total_points %></br>
 <%= @grade.class_date %></br>
@@ -25,8 +28,9 @@
 <% else %>
 	<h2>Thank You! You have finished this question set.</h2>
 	<!-- display their points here and have a link to "all grades" -->
-	
+	<h2> You answered <%= @grade.points %> out of <%= @grade.total_points %> questions correctly. </h2>
 
+	<!-- check grades button here? it is hard to route correctly -->
 <% end %>
 
 </div>
