@@ -43,6 +43,12 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     i = 0
     temp_ans = ""
+
+    # @answer.total_points.times do |i|
+    #   temp_ans += params[i.to_s]
+    # end
+
+
     while i.to_s < @answer.total_points.to_s
        temp_ans += params[i.to_s]
        i += 1 
