@@ -15,10 +15,10 @@ class Course < ActiveRecord::Base
   validates :course_name, :presence => true
 
   # checks to see is a student is has previously enrolled in a course
-  def is_enrolled?(student_id, course_name)
+  def is_enrolled?(student_id, course_id)
   	student_in_courses = StudentInCourse.where(:student_ID => student_id)
   	student_in_courses.each do |c|
-  		if c.course_name == course_name
+  		if c.course_ID == course_id
   			return true
   		end
   	end
