@@ -1,7 +1,8 @@
 
 <h1>Select a course</h1>
 
-<table>
+<div align=center>
+<table >
   <tr>
     <th>Course name</th>
     <th></th>
@@ -9,7 +10,8 @@
     <th></th>
   </tr>
 
-<% @courses.each do |course| %>
+<% course_names = @courses.sort_by {|u| u.course_name} %>
+<% course_names.each do |course| %>
   <tr>
     <!-- removing this link for now maybe in the future it could link to a course page for students -->
     <!-- <td><%= link_to course.course_name, course %></td> -->
@@ -22,5 +24,6 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />
