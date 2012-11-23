@@ -38,14 +38,9 @@ class GradesController < ApplicationController
     @grade.answers = temp_ans.join
     @grade.save
 
-    redirect_to grade_path(@grade)
+    redirect_to grade_path(:id => @grade.id)
     return
     
-    #respond_to do |format|
-     # format.html # new.html.erb
-     # format.json { render :json => @grade }
-    #end
-
   end
 
   def next
@@ -76,6 +71,11 @@ class GradesController < ApplicationController
     end
 
     redirect_to grade_path(@grade)
+  end
+
+  def display
+    @grade = Grade.where(:student_ID => params[:student_ID], :course_ID => params[:course_ID])
+
   end
 
   # GET /grades/1/edit

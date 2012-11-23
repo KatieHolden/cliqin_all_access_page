@@ -32,6 +32,10 @@ AllAccessPage::Application.routes.draw do
     member do
       get :calculate
     end
+
+    member do 
+      get :display
+    end
   end
 
   resources :students

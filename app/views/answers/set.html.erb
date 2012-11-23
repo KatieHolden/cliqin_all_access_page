@@ -1,27 +1,7 @@
-<script>
-function valbutton(thisform) {
-// place any other field validations that you require here
-// validate myradiobuttons
-	debug(dump(thisform))
-	myOption = -1;
-	for (i=thisform.0.length-1; i > -1; i--) {
-		if (thisform.0[i].checked) {
-			myOption = i; i = -1;
-		}
-	}
-	if (myOption == -1) {
-		alert("You must select a radio button");
-		return false;
-	}
-
-	thisform.submit(); // this line submits the form after validation
-}
-</script>
-
 <div>
 	<%= @answer.id %>
 	<%= @answer.total_points %>
-	<form action="change" method="post">
+	<form action="change" method="post" id="answer-set-form">
 	
 	<% for i in 0...@answer.total_points %>
 		<p><%= i + 1 %>.
@@ -34,7 +14,7 @@ function valbutton(thisform) {
 	</p>
 	<% end %>
 
-	<input type="submit" value="Submit" onclick="valbutton(change);return false;" value="Validate">
+	<input type="submit" value="Submit" value="Validate">
 	</form>
 </div>
 
