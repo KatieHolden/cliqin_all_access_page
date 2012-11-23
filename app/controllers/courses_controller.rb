@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def show_all
-    @courses = Course.where(instructor_ID: params[:id])
+    @courses = Course.where(instructor_ID: params[:instructor_ID])
   end
 
   # GET /courses/1
@@ -78,12 +78,15 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course = Course.find(params[:id])
-    @course.destroy
+      
+    #students = StudentInCourse.where(:course_ID => @course.id)
 
-    respond_to do |format|
-      format.html { redirect_to courses_url }
-      format.json { head :no_content }
-    end
+    #students.each do |s|
+     #redirect_to '/removecourse', (:course_ID => @course.id, :instructor_ID => @course.instructor_ID)
+    #end 
+
+    @course.destroy
+    redirect_to show_all_course_path(:instructor_ID => @course.instructor_ID)
   end
 
   def launch

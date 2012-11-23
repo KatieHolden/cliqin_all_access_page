@@ -6,6 +6,9 @@
 		 <h1 align = center > <%= @student.login %></h1>
 	  <%= link_to "Add Course", courses_path(:student_ID =>\
 			  @student.id), :class => "btn" %>
+		<br>
+		<br>
+		<%= link_to "Remove Course", show_all_student_in_course_path(:student_ID => @student.id), :class => "btn"%>
 	 </div>
 	   <div class = "span9 offset1">
 	    <h1 align=left>My Account</h1>

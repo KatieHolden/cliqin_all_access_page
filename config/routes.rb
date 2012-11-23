@@ -40,19 +40,25 @@ AllAccessPage::Application.routes.draw do
 
   resources :students
 
-  resources :courses
+  resources :courses do
+    member do
+      get :show_all
+    end
+  end
 
-  resources :instructors
+  resources :instructors 
 
   resources :sessions, :only => [:new, :create, :destroy]
 
-  resources :student_in_courses
+  resources :student_in_courses do
+    member do
+      get :show_all
+    end
+  end
 
   root :to => "home#index"
 
-  match '/delete_course', :to => 'courses#show_all'
-
-  match 'submission_form', :to => 'grades#submission_form'
+  match '/removecourse', :to => 'student_in_courses#destroy'
 
   match '/instructorsignup', :to => 'instructors#new'
   match '/signin', :to => 'sessions#new'

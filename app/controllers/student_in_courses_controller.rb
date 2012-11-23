@@ -10,6 +10,11 @@ class StudentInCoursesController < ApplicationController
     end
   end
 
+  def show_all
+    @student_in_courses = StudentInCourse.where(:student_ID => params[:student_ID])
+
+  end
+
   # GET /student_in_courses/1
   # GET /student_in_courses/1.json
   def show
@@ -24,18 +29,9 @@ class StudentInCoursesController < ApplicationController
   # GET /student_in_courses/new
   # GET /student_in_courses/new.json
   def new
-    #temp = StudentInCourse.where(:course_ID => params[:course_ID], :student_ID => params[:student_ID])
-    #compare = true
-
-    #temp.each do |t|
-      #compare = false
-      #@student_in_course = t
-    #end
-
-    #if compare == true
-      @student_in_course = StudentInCourse.new(:course_ID => params[:course_id], :student_ID => params[:student_ID], 
+    
+    @student_in_course = StudentInCourse.new(:course_ID => params[:course_id], :student_ID => params[:student_ID], 
         :course_name => params[:course_name])
-    #end
    
     @student_in_course.save
 
@@ -93,9 +89,7 @@ class StudentInCoursesController < ApplicationController
     @student_in_course = StudentInCourse.find(params[:id])
     @student_in_course.destroy
 
-    respond_to do |format|
-      format.html { redirect_to student_in_courses_url }
-      format.json { head :no_content }
-    end
+    redirect_to show_all_student_in_course_path(:student_ID => @student_in_course.student_ID)
+   
   end
 end
