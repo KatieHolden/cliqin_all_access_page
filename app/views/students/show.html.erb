@@ -2,13 +2,12 @@
 
 <% provide(:title, @student.login) %>
 <div class="row">
- <div class = "span3">
+ <div class = "span2">
 		 <h1 align = center > <%= @student.login %></h1>
-	  <a href="#" class="thumbnail">
-			  <img src = "http://cfe.umich.edu/img/people/elliot_soloway.jpg" alt="">
-	   </a>
-	   </div>
-	   <div class = "span7 offset1">
+	  <%= link_to "Add Course", courses_path(:student_ID =>\
+			  @student.id), :class => "btn" %>
+	 </div>
+	   <div class = "span9 offset1">
 	    <h1 align=left>My Account</h1>
       <% studentincourses = StudentInCourse.where(:student_ID => @student.id) %>
 	  <div class="tabbable tabs-right" >
@@ -19,9 +18,7 @@
 				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
 						  <%= c.course_name%></a></li>
           <% end %>
-		  <li><a data-toggle="tab"><%= link_to "Add Course", courses_path(:student_ID =>\
-				  @student.id) %></a></li>
-          </ul>
+		            </ul>
 		  <div class = "tab-content">
 				  <div class="tab-pane active" id="tab1">
 						 <p> I'm in our Profile page! </p>
@@ -33,7 +30,6 @@
 								  {:student_in_course => c} %>
 				  </div>
 		  <%end%>
-		  <!--Rendering the course creation page -->
 		 </div>
     	</div>
     </div>
