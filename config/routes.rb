@@ -46,6 +46,8 @@ AllAccessPage::Application.routes.draw do
 
   root :to => "home#index"
 
+  match '/delete_course', :to => 'courses#show_all'
+
   match 'submission_form', :to => 'grades#submission_form'
 
   match '/instructorsignup', :to => 'instructors#new'

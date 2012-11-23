@@ -10,6 +10,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show_all
+    @courses = Course.where(instructor_ID: params[:id])
+  end
+
   # GET /courses/1
   # GET /courses/1.json
   def show
