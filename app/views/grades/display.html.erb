@@ -11,7 +11,7 @@
 
 <% grades.each do |g| %>
 	<tr>
-	<td><%= g.class_date %></td>
+	<td><%= g.class_date.strftime("%b %-d, %Y") %></td>
 	<td><%= g.points %></td>
 	<td><%= g.total_points %></td>
 	</tr>

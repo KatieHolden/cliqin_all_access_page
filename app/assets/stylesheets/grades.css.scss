@@ -1,3 +1,30 @@
 // Place all the styles related to the Grades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#student_grades
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+
+border-collapse:collapse;
+}
+#student_grades td, #student_grades th 
+{
+font-size:1em;
+border:1px solid #0c2aff;
+padding:3px 7px 2px 7px;
+}
+#student_grades th 
+{
+font-size:1.1em;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#2f91ff;
+color:#ffffff;
+}
+#student_grades tr.alt td 
+{
+color:#000000;
+background-color:#96edff;
+}

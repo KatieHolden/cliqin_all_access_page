@@ -5,7 +5,7 @@
 <th>Date</th>
 
 <% @answers.each do |answer| %>
-	<th><%= answer.class_date %></th>
+	<th><%= answer.class_date.strftime("%b %-d, %Y") %></th>
 <% end %> 
 </tr>
 
