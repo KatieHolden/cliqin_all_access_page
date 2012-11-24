@@ -4,10 +4,12 @@
 
 	<%= link_to 'Add Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-large btn-primary" %>
 	<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => @course.id, :course_name => @course.course_name), :class => "btn btn-large btn-primary" %>
-	<% if  @course.answer_set_for_today?(@course.id) %>
-		<%= link_to 'Launch Session!', edit_course_path, :class => "btn btn-large btn-primary" %>
+	<% if @course.active %>
+		<p> This course is active! </p>
+	<% elsif  @course.answer_set_for_today?(@course.id) %>
+		<%= link_to 'Launch Session!', edit_course_path(:id => @course.id), :class => "btn btn-large btn-primary" %>
 	<% else %>
-		<p>To launch this course create a question set for today.</p> 
+		<p>To launch this course, create a Question Set for today.</p> 
 	<% end %>
 	
 </div>

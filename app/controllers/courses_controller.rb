@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def show_all
-    @courses = Course.where(instructor_ID: params[:instructor_ID])
+    @courses = Course.where(:instructor_ID => params[:instructor_ID])
   end
 
   # GET /courses/1
@@ -39,6 +39,11 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+
+    @course.update_attributes(:active => true)
+    @course.save
+
+    redirect_to course_path(:id => @course.id)
   end
 
   # POST /courses

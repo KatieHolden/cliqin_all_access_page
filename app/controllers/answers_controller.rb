@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
 
   def show_all
     @answers = Answer.where(:course_ID => params[:course_ID])
-    
+
   end
   # GET /answers/1
   # GET /answers/1.json
