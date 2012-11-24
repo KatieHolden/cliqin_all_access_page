@@ -1,20 +1,30 @@
 <h3> GradeBook: <%= @course.course_name %> </h3>
 
-<table id="roster", border="2" >
+<table id="roster" >
 <tr>
-<th>Student</th>
+<th>Date</th>
+
 <% @answers.each do |answer| %>
 	<th><%= answer.class_date %></th>
 <% end %> 
 </tr>
 
+<tr>
+<td><b>Total Points</b></td>
+
+<% @answers.each do |answer| %>
+	<td> <%= answer.total_points %> </td>
+<% end %>
+</tr>
+
 <% @student_in_courses.each do |sic| %>
 	
 	<tr>
+	
 	<% student = Student.find(sic.student_ID) %>
-	<td><b> <%= student.login %></b> </td>
+	<td><%= student.login %></td>
 	<% @answers.each do |answer| %>
-		<td><%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></td> <!-- call function from model here -->
+		<td><%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></td> 
 	<% end %>
 	</tr>
 <% end %>
