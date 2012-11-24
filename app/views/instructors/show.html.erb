@@ -7,7 +7,10 @@
 				=> @instructor.id), :class => "btn" %>
 		<br>
 		<br>
-		<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
+		<% if @instructor.has_courses?(@instructor.id) %>
+			<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
+		<% end %>
+		
 	</div>
 	<div class = "span9 offset1">
   	  <h1 align=left>My Account</h1>

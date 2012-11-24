@@ -17,6 +17,11 @@ class Instructor < ActiveRecord::Base
   before_save { |instructor| instructor.login = login.downcase }
   before_save :create_remember_token
 
+  def has_courses?(instructor_ID)
+    courses = Course.where(:instructor_ID => instructor_ID)
+    return courses.size > 0
+  end
+
   private
 
     def create_remember_token

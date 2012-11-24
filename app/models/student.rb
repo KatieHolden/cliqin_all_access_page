@@ -16,6 +16,11 @@ class Student < ActiveRecord::Base
   before_save { |student| student.login = login.downcase }
   before_save :create_remember_token
 
+  def has_courses(student_ID)
+    courses = StudentInCourse.where(:student_ID => student_ID)
+    return courses.size > 0
+  end
+
   private
 
     def create_remember_token
