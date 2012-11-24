@@ -48,6 +48,10 @@ AllAccessPage::Application.routes.draw do
     member do
       get :show_all
     end
+
+    member do 
+      get :roster
+    end
   end
 
   resources :instructors 

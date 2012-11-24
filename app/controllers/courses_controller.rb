@@ -10,6 +10,13 @@ class CoursesController < ApplicationController
     end
   end
 
+  def roster #pass in course_ID
+    @course = Course.find(params[:id])
+    @answers = Answer.where(:course_ID => @course.id)
+    @student_in_courses = StudentInCourse.where(:course_ID => @course.id)
+
+  end
+
   def show_all
     @courses = Course.where(:instructor_ID => params[:instructor_ID])
   end

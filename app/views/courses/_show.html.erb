@@ -13,5 +13,7 @@
 	<% else %>
 		<p>To launch this course, create a Question Set for today.</p> 
 	<% end %>
+
+	<%= link_to 'View Roster', roster_course_path(:id => course.id) %>
 </div>
 </div>
