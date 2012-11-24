@@ -17,14 +17,15 @@
 	    <ul class = "nav nav-tabs">
 			<li class="active"> <a href = "#tab1" data-toggle="tab">My Profile
 				</a></li>
-          <% studentincourses.each do |c| %>
+		  <% course_tabs = studentincourses.sort_by {|u| u.course_name} %> 
+          <% course_tabs.each do |c| %>
 				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
 						  <%= c.course_name%></a></li>
           <% end %>
 		            </ul>
 		  <div class = "tab-content">
 				  <div class="tab-pane active" id="tab1">
-						 <p> I'm in our Profile page! </p>
+						 <p> Welcome to your Profile! Add or remove your courses from here. </p>
 				  </div>
 				  <!--Rendering each of the course activation pages-->
 				  <% studentincourses.each do |c| %>
