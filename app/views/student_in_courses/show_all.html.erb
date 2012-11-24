@@ -6,8 +6,8 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @student_in_courses.each do |course| %>
+<% alpha_courses = @student_in_courses.sort_by {|u| u.course_name} %> 
+<% alpha_courses.each do |course| %>
   <tr>
     <td><%= course.course_name %></td>
     
