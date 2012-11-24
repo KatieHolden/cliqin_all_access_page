@@ -1,11 +1,12 @@
 <h1></h1> 
-<div class="center hero-unit">
+<div align=center>
   <h1>Welcome to Cliqin</h1>
 
   <h2>
     Manage your Cliqin Classroom Assisstant
   </h2>
-
+ </div>
+<div class="center hero-unit">
 
 </div>
   <div class = "row">
@@ -13,16 +14,28 @@
 	  <h2 align=center>
 			  <%= link_to "Instructor Sign Up", instructorsignup_path %>
 		</h2>
+		  <div align=center>
+				  <%= link_to(image_tag("/images/instructors.png", :alt =>\
+						  "Instructor Signup"), instructorsignup_path) %>
+		</div>
 	</div>
 	<div class="span4" >
 	  <h2 align=center>
 			  <%= link_to "Student Sign Up", studentsignup_path %>
 		</h2>
+		  <div align=center>
+				  <%= link_to(image_tag("/images/students.png", :alt =>\
+						  "Instructor Signup"), studentsignup_path) %>
+		</div>
 	</div>
 	<div class="span4" >
 	  <h2 align=center>
 			  <%= link_to "Learn More", '/static_pages/about' %>
 		</h2>
+		  <div align=center>
+				  <%= link_to(image_tag("/images/lightbulb.png", :alt =>\
+						  "Instructor Signup"), '/static_pages/about') %>
+		</div>
 	</div>
 
   </div>
