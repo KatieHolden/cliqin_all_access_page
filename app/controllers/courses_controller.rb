@@ -91,11 +91,11 @@ class CoursesController < ApplicationController
   def destroy
     @course = Course.find(params[:id])
       
-    #students = StudentInCourse.where(:course_ID => @course.id)
+    students = StudentInCourse.where(:course_ID => @course.id)
 
-    #students.each do |s|
-     #redirect_to '/removecourse', (:course_ID => @course.id, :instructor_ID => @course.instructor_ID)
-    #end 
+    students.each do |s|
+     s.destroy
+    end 
 
     @course.destroy
     redirect_to show_all_course_path(:instructor_ID => @course.instructor_ID)
