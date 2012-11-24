@@ -25,6 +25,11 @@ class Course < ActiveRecord::Base
   	return false
   end
 
+  def answer_set_exists?(course_id)
+    answer_set = Answer.where(:course_ID => course_id)
+    return answer_set.size > 0
+  end
+
   def answer_set_for_today?(course_id)
   	answer_set = Answer.where(:course_ID => course_id)
 
