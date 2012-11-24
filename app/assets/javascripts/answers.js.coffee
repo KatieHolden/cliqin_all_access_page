@@ -11,7 +11,7 @@ $ ->
       if $(element).find('input[type=radio]:checked').length < 1
         error = true
     if error
-      alert "You must select a choice"
+      alert "You must select a choice for each question"
       return false
     else
       return true
