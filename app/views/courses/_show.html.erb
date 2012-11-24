@@ -2,7 +2,8 @@
 <div class="span6 center hero-unit" >
 <h1><%= course.course_name %></h1>
 
-	<%= link_to 'New Question Set', new_answer_path(:course_ID => course.id), :class => "btn btn-large btn-primary" %>
+	<%= link_to 'Add Question Set', new_answer_path(:course_ID => course.id), :class => "btn btn-large btn-primary" %>
+	<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => course.id, :course_name => course.course_name), :class => "btn btn-large btn-primary" %>
 	<% if  course.answer_set_for_today?(course.id) %>
 		<%= link_to 'Launch Session!', edit_course_path, :class => "btn btn-large btn-primary" %>
 	<% else %>

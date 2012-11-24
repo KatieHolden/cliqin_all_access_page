@@ -20,6 +20,10 @@ AllAccessPage::Application.routes.draw do
     member do
       post :change
     end
+
+    member do
+      get :show_all
+    end
   end
 
   

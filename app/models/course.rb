@@ -35,4 +35,15 @@ class Course < ActiveRecord::Base
   	end
   	return false
   end
+
+  def answer_set_for_date?(course_id, date, answer_id)
+    answer_set = Answer.where(:course_ID => course_id)
+
+    answer_set.each do |a|
+      if a.class_date == date && a.id != answer_id
+        return true
+      end
+    end
+    return false
+  end
 end
