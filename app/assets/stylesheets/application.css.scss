@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  */
+@import "bootstrap";
 
 body{
 	height: 100%;
@@ -23,13 +24,11 @@ body{
 }
 
 #HomePage{
- 	background-color: #000;
 	h1{
-		color: white;
-		font-family: "new century schoolbook";
+		color: $grayLight;
 		padding-top: 10px;
 		text-align: right;
-		padding-right: 18px;
+		padding-right: 25px;
 		font-size: 28px
 	}
 }
