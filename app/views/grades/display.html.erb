@@ -1,0 +1,21 @@
+<h3> My Grades: <%= params[:course_name] %> </h3>
+
+<table id="student_grades">
+<tr>
+<th>Date</th>
+<th>Score</th>
+<th>Total Points</th>
+</tr>
+
+<% grades = Grade.where(:student_ID => params[:student_ID], :course_ID => params[:course_ID]) %>
+
+<% grades.each do |g| %>
+	<tr>
+	<td><%= g.class_date.strftime("%b %-d, %Y") %></td>
+	<td><%= g.points %></td>
+	<td><%= g.total_points %></td>
+	</tr>
+<% end %>
+</table>
+
+<%= link_to 'Back to Course Page', student_in_course_path(:id => params[:sicID]) %>

@@ -16,14 +16,19 @@ class Student < ActiveRecord::Base
   before_save { |student| student.login = login.downcase }
   before_save :create_remember_token
 
-  validates :login, :presence => true
-  validates :password, :presence => true, :length => { :minimum => 6 }
-  validates :password_confirmation, :presence => true
+    validates :login, :presence => true#, :uniqueness => { :case_sensitive => false }
+  validates :password, :presence => true, :length => { :minimum => 6 }, :on => :create
+  validates :password_confirmation, :presence => true, :on => :create
+
+  def has_courses(student_ID)
+    courses = StudentInCourse.where(:student_ID => student_ID)
+    return courses.size > 0
+  end
 
   private
 
     def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
+      self.remember_token ||= SecureRandom.urlsafe_base64
     end
 
 end

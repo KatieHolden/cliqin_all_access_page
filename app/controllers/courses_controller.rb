@@ -10,8 +10,15 @@ class CoursesController < ApplicationController
     end
   end
 
+  def roster #pass in course_ID
+    @course = Course.find(params[:id])
+    @answers = Answer.where(:course_ID => @course.id)
+    @student_in_courses = StudentInCourse.where(:course_ID => @course.id)
+
+  end
+
   def show_all
-    @courses = Course.where(instructor_ID: params[:id])
+    @courses = Course.where(:instructor_ID => params[:instructor_ID])
   end
 
   # GET /courses/1
@@ -39,6 +46,11 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+
+    @course.update_attributes(:active => true)
+    @course.save
+
+    redirect_to course_path(:id => @course.id)
   end
 
   # POST /courses
@@ -78,12 +90,15 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course = Course.find(params[:id])
-    @course.destroy
+      
+    students = StudentInCourse.where(:course_ID => @course.id)
 
-    respond_to do |format|
-      format.html { redirect_to courses_url }
-      format.json { head :no_content }
-    end
+    students.each do |s|
+     s.destroy
+    end 
+
+    @course.destroy
+    redirect_to show_all_course_path(:instructor_ID => @course.instructor_ID)
   end
 
   def launch

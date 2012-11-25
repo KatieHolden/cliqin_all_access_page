@@ -6,6 +6,12 @@
 		 <h1 align = center > <%= @student.login %></h1>
 	  <%= link_to "Add Course", courses_path(:student_ID =>\
 			  @student.id), :class => "btn" %>
+		<br>
+		<br>
+		<% if @student.has_courses(@student.id) %>
+			<%= link_to "Remove Course", show_all_student_in_course_path(:student_ID => @student.id), :class => "btn"%>
+		<% end %>
+		
 	 </div>
 	   <div class = "span9 offset1">
 	    <h1 align=left>My Account</h1>
@@ -14,14 +20,15 @@
 	    <ul class = "nav nav-tabs">
 			<li class="active"> <a href = "#tab1" data-toggle="tab">My Profile
 				</a></li>
-          <% studentincourses.each do |c| %>
+		  <% course_tabs = studentincourses.sort_by {|u| u.course_name} %> 
+          <% course_tabs.each do |c| %>
 				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
 						  <%= c.course_name%></a></li>
           <% end %>
 		            </ul>
 		  <div class = "tab-content">
 				  <div class="tab-pane active" id="tab1">
-						 <p> I'm in our Profile page! </p>
+						 <p> Welcome to your Profile! Add or remove your courses from here. </p>
 				  </div>
 				  <!--Rendering each of the course activation pages-->
 				  <% studentincourses.each do |c| %>

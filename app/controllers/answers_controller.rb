@@ -10,6 +10,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show_all
+    @answers = Answer.where(:course_ID => params[:course_ID])
+
+  end
   # GET /answers/1
   # GET /answers/1.json
   def show
@@ -25,9 +29,7 @@ class AnswersController < ApplicationController
   # GET /answers/new.json
   def new
     @answer = Answer.new(course_ID: params[:course_ID])
-    
-    
-
+  
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @answer }
@@ -43,6 +45,12 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     i = 0
     temp_ans = ""
+
+    # @answer.total_points.times do |i|
+    #   temp_ans += params[i.to_s]
+    # end
+
+
     while i.to_s < @answer.total_points.to_s
        temp_ans += params[i.to_s]
        i += 1 
@@ -97,9 +105,10 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.destroy
 
-    respond_to do |format|
-      format.html { redirect_to answers_url }
-      format.json { head :no_content }
-    end
+    redirect_to course_path(:id => @answer.course_ID)
+    #respond_to do |format|
+     # format.html { redirect_to answers_url }
+      #format.json { head :no_content }
+    #end
   end
 end

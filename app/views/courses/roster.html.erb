@@ -1,0 +1,35 @@
+<h3> GradeBook: <%= @course.course_name %> </h3>
+
+<table id="roster" >
+<tr>
+<th>Date</th>
+
+<% @answers.each do |answer| %>
+	<th><%= answer.class_date.strftime("%b %-d, %Y") %></th>
+<% end %> 
+</tr>
+
+<tr>
+<td><b>Total Points</b></td>
+
+<% @answers.each do |answer| %>
+	<td> <%= answer.total_points %> </td>
+<% end %>
+</tr>
+
+<% @student_in_courses.each do |sic| %>
+	
+	<tr>
+	
+	<% student = Student.find(sic.student_ID) %>
+	<td><%= student.login %></td>
+	<% @answers.each do |answer| %>
+		<td><%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></td> 
+	<% end %>
+	</tr>
+<% end %>
+
+</table>
+
+
+<%= link_to 'Back to Course Page', course_path(:id => @course.id) %>

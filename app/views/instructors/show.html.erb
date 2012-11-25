@@ -1,5 +1,3 @@
-<!-- app/views/instructors/show.html.erb-->
-
 <% provide(:title, @instructor.login) %>
 <% courses = Course.where(:instructor_ID => @instructor.id) %>
 <div class = "row">
@@ -9,7 +7,10 @@
 				=> @instructor.id), :class => "btn" %>
 		<br>
 		<br>
-		<%= link_to "Remove course", delete_course_path, :class => "btn"%>
+		<% if @instructor.has_courses?(@instructor.id) %>
+			<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
+		<% end %>
+		
 	</div>
 	<div class = "span9 offset1">
   	  <h1 align=left>My Account</h1>
@@ -17,14 +18,15 @@
 	  	<ul class="nav nav-tabs">
 			 <li class="active"> <a href = "#tab1" data-toggle="tab"> My
 						  Profile</a></li>
-              <% courses.each do |c| %>
+			  <% course_tabs = courses.sort_by {|u| u.course_name} %> 
+              <% course_tabs.each do |c| %>
 			  <li> <a data-toggle="tab" href="#<%=c.course_name%>">
 				  <%=c.course_name%></a></li>
               <% end %>
 	    </ul>
 	    <div class = "tab-content">
 		  <div class="tab-pane active" id="tab1">
-			<p> Im in our Profile page! </p>
+			<p> Welcome to your Profile! You can add and remove Courses or Question Sets from here. </p>
 		  </div>
 			<!--Rendering each of the course activation pages-->
             <% courses.each do |c| %>
