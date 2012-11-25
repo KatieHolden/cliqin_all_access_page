@@ -1,42 +1,34 @@
 <h1></h1> 
-<div align=center>
-  <h1>Welcome to Cliqin</h1>
-
-  <h2>
-    Manage your Cliqin Classroom Assisstant
-  </h2>
+<div id="HomePage">
+ <%= image_tag "home_banner.png", :id => "HomeImage" %>
+<div>
+  <h1 >
+    Classroom Assistant
+  </h1>
+	<br>
  </div>
-<div class="center hero-unit">
-
-</div>
   <div class = "row">
-	<div class="span4" >
-	  <h2 align=center>
-			  <%= link_to "Instructor Sign Up", instructorsignup_path %>
-		</h2>
+	<div class="span4" id="homeicon" >
+	  <h3>Instructor Sign Up</h3>
 		  <div align=center>
-				  <%= link_to(image_tag("/images/instructors.png", :alt =>\
+				  <%= link_to(image_tag("instructors.png", :alt =>\
 						  "Instructor Signup"), instructorsignup_path) %>
 		</div>
 	</div>
-	<div class="span4" >
-	  <h2 align=center>
-			  <%= link_to "Student Sign Up", studentsignup_path %>
-		</h2>
+	<div class="span4" id="homeicon">
+	  <h3> Student Sign Up</h3>
 		  <div align=center>
-				  <%= link_to(image_tag("/images/students.png", :alt =>\
+				  <%= link_to(image_tag("students.png", :alt =>\
 						  "Instructor Signup"), studentsignup_path) %>
 		</div>
 	</div>
-	<div class="span4" >
-	  <h2 align=center>
-			  <%= link_to "Learn More", '/static_pages/about' %>
-		</h2>
+	<div class="span4" id="homeicon">
+	  <h3> Learn More</h3>
 		  <div align=center>
-				  <%= link_to(image_tag("/images/lightbulb.png", :alt =>\
+				  <%= link_to(image_tag("lightbulb.png", :alt =>\
 						  "Instructor Signup"), '/static_pages/about') %>
 		</div>
 	</div>
 
   </div>
-
+  </div>

@@ -12,7 +12,7 @@
     <header class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-			<a class="brand" href = "#">CliqMeIn</a>
+			<a class="brand" href = "#">CliqIn</a>
 			<div class="nav-collapse collapse">
 			  <ul class="nav">
 				 <li class="active"><%= link_to "Home",    '/' %></li>
@@ -26,8 +26,6 @@
                  </li>
 			  </ul>
             <% else %>
-              	 <li><%= link_to "Student Sign Up", studentsignup_path %></li>
-                 <li><%= link_to "Instructor Sign Up", instructorsignup_path %></li>
                  <li><%= link_to "Sign in", signin_path %></li>
 			  </ul>
               <form class="navbar-form pull-right">
@@ -41,15 +39,13 @@
       </div>
     </header>
 	<body>
-		<div class = "wrapper">
-    		<div class="container">
+    		<div class="container" background-color="#000000">
 				<% flash.each do |key, value| %>
 				<div class="alert alert-<%= key %>"><%= value %></div>
 				<% end %>
 				<%= yield %>
 			</div>
 			<div class="push"><!--//--></div>
-		</div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
 
