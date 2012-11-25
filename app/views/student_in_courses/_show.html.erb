@@ -11,16 +11,20 @@
 		
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %> 
 
+
 			<% answer = Answer.where(:course_ID => c.id, :class_date => Date.today) %>
 			<% answer.each do |a| %> 
+				<% if student_in_course.participated_today?(student_in_course.course_ID, student_in_course.student_ID) %>
+					<p> You have already completed the quesiton set for today. </p>
+				<% else %>
 				
-				<%= link_to 'Participate in this Course!', 
-					new_grade_path(:course_ID =>student_in_course.course_ID,
+					<%= link_to 'Participate in this Course!', 
+						new_grade_path(:course_ID =>student_in_course.course_ID,
 								   :student_ID => student_in_course.student_ID,
 								   :total_points => a.total_points), :class => "btn btn-large btn-primary" %>
-
 				
-			<% end %> 
+				<% end %> 
+			<% end %>
 		<% elsif !c.active %>
 			<p> This course is not active. Please wait for your instructor to make it activate it.</p>
 		<% else %>
