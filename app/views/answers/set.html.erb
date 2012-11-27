@@ -1,11 +1,11 @@
 <div>
-	<%= @answer.id %>
-	<%= @answer.total_points %>
 	<% course = Course.find(@answer.course_ID) %>
 	<% if  course.answer_set_for_date?(@answer.course_ID, @answer.class_date, @answer.id) %>
-		<h2> A Question Set already exists for this course on the date you selected. Please remove the existing Question Set if you would like to create a new one for this date. </h2>
-		<%= link_to 'OK', @answer, :method => :delete , :class => "btn" %>
+		<br><br>
+		<div align="center"><h3> A Question Set already exists for this course on the date you selected. <br>Please remove the existing Question Set if you would like to create a new one for this date. <br><br></h3>
+		<%= link_to 'OK', @answer, :method => :delete , :class => "btn" %></div>
 	<% else %>
+		<h2>Select the correct answer for each question</h2>
 		<form action="change" method="post" id="answer-set-form">
 	
 		<% for i in 0...@answer.total_points %>
@@ -19,7 +19,7 @@
 			</p>
 		<% end %>
 
-		<input type="submit" value="Submit" value="Validate">
+		<input type="submit" class="btn btn-large btn-primary" value="Submit" value="Validate">
 		</form>
 	<% end %>
 </div>

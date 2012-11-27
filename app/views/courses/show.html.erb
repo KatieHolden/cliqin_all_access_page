@@ -1,20 +1,25 @@
 
-<div class="center hero-unit">
-	<h1><%= @course.course_name %></h1>
+<h1><div align="left"><%= @course.course_name %></div></h1>
 
-	<%= link_to 'Add Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-large btn-primary" %>
+
+
+<div class="center hero-unit">
+		
+	
+	<%= link_to 'Add Question Set', new_answer_path(:course_ID => @course.id), :class => "btn btn-primary" %><br><br>
 	<% if @course.answer_set_exists?(@course.id) %>
-		<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => @course.id, :course_name => @course.course_name), :class => "btn btn-large btn-primary" %>	
+		<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => @course.id, :course_name => @course.course_name), :class => "btn btn-primary" %></br><br>	
 	<% end %>
 	
 	<% if @course.active %>
 		<p> This course is active! </p>
 	<% elsif  @course.answer_set_for_today?(@course.id) %>
-		<%= link_to 'Launch Session!', edit_course_path(:id => @course.id), :class => "btn btn-large btn-primary" %>
+		<%= link_to 'Launch Session!', edit_course_path(:id => @course.id), :class => "btn btn-primary" %>
 	<% else %>
 		<p>To launch this course, create a Question Set for today.</p> 
 	<% end %>
+	<br>
 
 	<%= link_to 'View Roster', roster_course_path(:id => @course.id) %>
-	
+
 </div>
