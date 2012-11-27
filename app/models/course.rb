@@ -42,7 +42,7 @@ class Course < ActiveRecord::Base
   	answer_set = Answer.where(:course_ID => course_id)
 
   	answer_set.each do |a|
-  		if a.class_date == Date.today
+  		if a.class_date == Time.now.in_time_zone("Eastern Time (US & Canada)").to_date
   			return true
   		end
   	end
