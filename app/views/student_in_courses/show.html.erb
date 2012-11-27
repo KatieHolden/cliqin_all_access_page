@@ -1,5 +1,7 @@
+<h1><div align="left"><%= @student_in_course.course_name %></div></h1>
+
 <div class="center hero-unit">
-<h1><%= @student_in_course.course_name %></h1>
+
 <% thisCourse = Course.where(:id => @student_in_course.course_ID) %>
 
 <% thisCourse.each do |c| %>
@@ -19,13 +21,13 @@
 								   :student_ID => @student_in_course.student_ID,
 								   :total_points => a.total_points), :class => "btn btn-large btn-primary" %>
 
-				<% end %>  
+				<% end %> <br><br> 
 			<% end %> 
 		<% elsif !c.active %>
 			<p> This course is not active. Please wait for your instructor to activate it.</p>
 		<% else %>
-			<p> You are not on the appropriate wifi to participate in this class.</p> 
-		<% end %>  
+			<p> You must be connected to the class network to participate.</p> 
+		<% end %> <br><br> 
 		<%= link_to 'View My Grades', display_grade_path(:student_ID => @student_in_course.student_ID, :course_ID => @student_in_course.course_ID, :course_name => @student_in_course.course_name, :sicID => @student_in_course.id) %>
 	<% end %>
 
