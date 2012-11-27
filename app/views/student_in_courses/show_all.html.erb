@@ -1,17 +1,16 @@
 <table>
   <tr>
-    <th><h2>Choose a Course to remove</h2></th> 
-    
-    <th></th>
+    <th><h2>Choose a Course</h2></th> 
     <th></th>
     <th></th>
   </tr>
 <% alpha_courses = @student_in_courses.sort_by {|u| u.course_name} %> 
 <% alpha_courses.each do |course| %>
   <tr>
-    <td><%= course.course_name %></td>
+	<td><br><%= course.course_name %></td>
     
-    <td><%= link_to 'Remove this Course', course, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	<td><br><%= link_to 'Remove', course, :method =>\
+			:delete, :data => { :confirm => 'Are you sure?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>

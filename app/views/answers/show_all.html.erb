@@ -5,14 +5,14 @@
     
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @answers.each do |answer| %>
   <tr>
-    <td><%= answer.class_date %></td>
+	<td><br><%= answer.class_date.strftime("%b %-d, %Y")%></td>
     
-    <td><%= link_to 'Remove this Question Set', answer, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	<td><br><%= link_to 'Remove', answer, :method => :delete,
+			:data => { :confirm => 'Are you sure?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
