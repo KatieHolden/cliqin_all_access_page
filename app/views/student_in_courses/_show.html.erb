@@ -5,9 +5,6 @@
 <% thisCourse.each do |c| %>
 	<% instructor = Instructor.where(:id => c.instructor_ID) %>
 	<% instructor.each do |i| %>
-		<!--<%= c.active %>
-		<%= i.IP %> 
-		<%= request.env['action_dispatch.remote_ip'] %> -->
 		
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %> 
 
@@ -20,7 +17,7 @@
 					<%= link_to 'Participate in this Course!', 
 						new_grade_path(:course_ID =>student_in_course.course_ID,
 								   :student_ID => student_in_course.student_ID,
-								   :total_points => a.total_points), :class => "btn btn-primary" %>
+								   :total_points => a.total_points), :class => "btn btn-info" %>
 				
 				<% end %> <br>
 			<% end %>

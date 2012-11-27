@@ -2,10 +2,10 @@
 <!-- getting heroku to work -->
 <div class="center hero-unit">
 	
-<%= link_to 'Add more courses', courses_path(:student_ID => params[:student_ID]), :class => "btn btn-large btn-primary" %>
+<%= link_to 'Add more courses', courses_path(:student_ID => params[:student_ID]), :class => "btn btn-large btn-info" %>
 
 <!-- we could think about eliminating this button - not very consistent or necessary anymore -->
 <%= link_to 'Show my profile', student_path(:id => params[:student_ID]),\
-		:class => "btn btn-large btn-primary" %>
+		:class => "btn btn-large btn-info" %>
 
 </div>
