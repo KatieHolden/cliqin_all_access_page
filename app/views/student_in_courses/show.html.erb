@@ -19,9 +19,9 @@
 					<%= link_to 'Participate in this Course!', 
 						new_grade_path(:course_ID =>@student_in_course.course_ID,
 								   :student_ID => @student_in_course.student_ID,
-								   :total_points => a.total_points), :class => "btn btn-large btn-primary" %>
+								   :total_points => a.total_points), :class => "btn btn-primary" %>
 
-				<% end %> <br><br> 
+				<% end %> <br>
 			<% end %> 
 		<% elsif !c.active %>
 			<p> This course is not active. Please wait for your instructor to activate it.</p>
