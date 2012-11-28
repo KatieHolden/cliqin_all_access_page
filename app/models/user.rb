@@ -11,6 +11,16 @@ class User < ActiveRecord::Base
   # validates :password, :presence => true, :length => { :minimum => 6 }
   # validates :password_confirmation, :presence => true, :on => :create
 
+  validates :login, :presence => true, :on => :create
+  validates_uniqueness_of :login
+
+  #validates_presence_of :password, :on => :create
+  #validates_confirmation_of :password, :on => :create
+  
+
+  #validates :password, :length => { :minimum => 6 }
+  #validates :password_confirmation, :presence => true, :on => :create
+
   def instructor?
     self.is_a?(Instructor)
   end
