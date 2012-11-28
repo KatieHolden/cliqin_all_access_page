@@ -17,9 +17,9 @@ class Instructor < ActiveRecord::Base
   before_save { |instructor| instructor.login = login.downcase }
   before_save :create_remember_token
 
-  validates :login, :presence => true#, :uniqueness => { :case_sensitive => false }
-  validates :password, :presence => true, :length => { :minimum => 6 },  :on => :create 
-  validates :password_confirmation, :presence => true, :on => :create
+  # validates :login, :presence => true#, :uniqueness => { :case_sensitive => false }
+  # validates :password, :presence => true, :length => { :minimum => 6 },  :on => :create 
+  # validates :password_confirmation, :presence => true, :on => :create
 
   def has_courses?(instructor_ID)
     courses = Course.where(:instructor_ID => instructor_ID)

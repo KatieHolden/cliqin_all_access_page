@@ -8,7 +8,7 @@ gem 'heritage'
 group :development do
   gem 'sqlite3', '1.3.5'
   gem 'annotate', '2.5.0'
-
+  gem 'thin'
 end
 
 group :development, :test do
