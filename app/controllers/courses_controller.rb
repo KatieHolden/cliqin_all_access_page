@@ -92,10 +92,19 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
       
     students = StudentInCourse.where(:course_ID => @course.id)
-
     students.each do |s|
      s.destroy
     end 
+
+    answers = Answer.where(:course_ID => @course.id)
+    answers.each do |a|
+     a.destroy
+    end
+
+    grades = Grade.where(:course_ID => @course.id)
+    grades.each do |g|
+      g.destroy
+    end
 
     @course.destroy
     redirect_to show_all_course_path(:instructor_ID => @course.instructor_ID)
