@@ -12,7 +12,7 @@
 class Course < ActiveRecord::Base
   attr_accessible :course_name, :instructor_ID, :active
 
-  validates :course_name, :presence => true
+  validates :course_name, :presence => true, :uniqueness => true
 
   # checks to see is a student is has previously enrolled in a course
   def is_enrolled?(student_id, course_id)

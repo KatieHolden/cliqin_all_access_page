@@ -3,7 +3,10 @@
   <div class="span6 offset3">
 	<h2 align="left">Add a new course</h2>
 
+
+
 		  <%= form_for (@course) do |f| %>
+		  <%= render 'course_error' %>
 
       <%= f.label :course_name %>
       <%= f.text_field :course_name %>
