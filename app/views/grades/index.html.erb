@@ -6,8 +6,6 @@
     <th>Points</th>
     <th>Total points</th>
     <th>Class date</th>
-    <th>Student id</th>
-    <th>Course id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,15 +17,9 @@
     <td><%= grade.points %></td>
     <td><%= grade.total_points %></td>
     <td><%= grade.class_date %></td>
-    <td><%= grade.student_ID %></td>
-    <td><%= grade.course_ID %></td>
-    <td><%= link_to 'Show', grade %></td>
-    <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-    <td><%= link_to 'Destroy', grade, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Grade', new_grade_path %>

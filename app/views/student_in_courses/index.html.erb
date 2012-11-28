@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th>Student id</th>
-    <th>Course id</th>
+    <th>Course name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,15 +11,10 @@
 <% @student_in_courses.each do |student_in_course| %>
   <tr>
     <td><%= student_in_course.course_name %></td>
-    <td><%= student_in_course.student_ID %></td>
-    <td><%= student_in_course.course_ID %></td>
-    <td><%= link_to 'Show', student_in_course %></td>
-    <td><%= link_to 'Edit', edit_student_in_course_path(student_in_course) %></td>
-    <td><%= link_to 'Destroy', student_in_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Student in course', new_student_in_course_path %>
+
