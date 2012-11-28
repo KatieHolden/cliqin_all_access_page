@@ -1,15 +1,15 @@
 <div class="center hero-unit">
 		
 	
-	<%= link_to 'Add Question Set', new_answer_path(:course_ID => course.id), :class => "btn btn-primary" %><br><br>
+	<%= link_to 'Add Question Set', new_answer_path(:course_ID => course.id), :class => "btn btn-info" %><br><br>
 	<% if course.answer_set_exists?(course.id) %>
-		<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => course.id, :course_name => course.course_name), :class => "btn btn-primary" %></br><br>	
+		<%= link_to 'Remove Question Set', show_all_answer_path(:course_ID => course.id, :course_name => course.course_name), :class => "btn btn-info" %></br><br>	
 	<% end %>
 	
 	<% if course.active %>
 		<p> This course is active! </p>
 	<% elsif  course.answer_set_for_today?(course.id) %>
-		<%= link_to 'Launch Session!', edit_course_path(:id => course.id), :class => "btn btn-primary" %>
+		<%= link_to 'Launch Session!', edit_course_path(:id => course.id), :class => "btn btn-info" %>
 	<% else %>
 		<p>To launch this course, create a Question Set for today.</p> 
 	<% end %>

@@ -1,18 +1,14 @@
 <div class="center hero-unit">
-<h1><%= student_in_course.course_name %></h1>
+
 <% thisCourse = Course.where(:id => student_in_course.course_ID) %>
 
 <% thisCourse.each do |c| %>
 	<% instructor = Instructor.where(:id => c.instructor_ID) %>
 	<% instructor.each do |i| %>
-		<!--<%= c.active %>
-		<%= i.IP %> 
-		<%= request.env['action_dispatch.remote_ip'] %> -->
 		
 		<% if c.active and i.IP.to_s == request.env['action_dispatch.remote_ip'].to_s %> 
 
-
-			<% answer = Answer.where(:course_ID => c.id, :class_date => Date.today) %>
+			<% answer = Answer.where(:course_ID => c.id, :class_date => Time.now.in_time_zone("Eastern Time (US & Canada)").to_date) %>
 			<% answer.each do |a| %> 
 				<% if student_in_course.participated_today?(student_in_course.course_ID, student_in_course.student_ID) %>
 					<p> You have already completed the quesiton set for today. </p>
@@ -21,15 +17,15 @@
 					<%= link_to 'Participate in this Course!', 
 						new_grade_path(:course_ID =>student_in_course.course_ID,
 								   :student_ID => student_in_course.student_ID,
-								   :total_points => a.total_points), :class => "btn btn-large btn-primary" %>
+								   :total_points => a.total_points), :class => "btn btn-info" %>
 				
-				<% end %> 
+				<% end %> <br>
 			<% end %>
 		<% elsif !c.active %>
 			<p> This course is not active. Please wait for your instructor to make it activate it.</p>
 		<% else %>
-			<p> You are not on the appropriate wifi to participate in this class.</p> 
-		<% end %> 
+			<p>You must be connected to the class network to participate.</p> 
+		<% end %> <br><br>
 		<%= link_to 'View My Grades', display_grade_path(:student_ID => student_in_course.student_ID, :course_ID => student_in_course.course_ID, :course_name => student_in_course.course_name, :sicID => student_in_course.id) %>
 	<% end %>
 

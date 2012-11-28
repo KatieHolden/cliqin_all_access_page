@@ -13,7 +13,7 @@
   <tr>
     <td><%= link_to course.course_name, course %></td>
     <td><%= course.active %></td>
-    <td><%= link_to 'Add', new_student_in_course_path(:course_id => course.id, :student_ID => params[:student_ID], :course_name => course.course_name), :class => "btn btn-large btn-primary" %></td>
+    <td><%= link_to 'Add', new_student_in_course_path(:course_id => course.id, :student_ID => params[:student_ID], :course_name => course.course_name), :class => "btn btn-large btn-info" %></td>
   </tr>
 <% end %>
 </table>

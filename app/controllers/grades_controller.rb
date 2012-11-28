@@ -26,7 +26,7 @@ class GradesController < ApplicationController
   # GET /grades/new.json
   def new
     @grade = Grade.new(course_ID: params[:course_ID], student_ID: params[:student_ID], 
-      :current_question => 1, :points => 0, :class_date => Date.today, :total_points => params[:total_points])
+      :current_question => 1, :points => 0, :class_date => Time.now.in_time_zone("Eastern Time (US & Canada)").to_date, :total_points => params[:total_points])
     
     temp_ans = []
     i = 0

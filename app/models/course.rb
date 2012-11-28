@@ -26,11 +26,28 @@ class Course < ActiveRecord::Base
   end
 
   def populate_roster_row(student_ID, course_ID, class_date)
-    # we want to check here for attendance, we will check that grade string is not all Z's 
     grade = Grade.where(:student_ID => student_ID, :course_ID => course_ID, :class_date => class_date)
+    
     grade.each do |g|
       return g.points
     end
+    return 0
+
+  end
+
+  def populate_attendance(student_ID, course_ID, class_date)
+    grade = Grade.where(:student_ID => student_ID, :course_ID => course_ID, :class_date => class_date)
+
+    i = 0 
+    grade.each do |g|
+      while i < g.total_points
+        if g.answers[i] != 'Z'
+          return '@'
+        end
+      end
+    end
+    return 'x'
+
   end
 
   def answer_set_exists?(course_id)

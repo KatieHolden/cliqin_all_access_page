@@ -1,30 +1,18 @@
 
 <div class="center hero-unit">
 
-<h2> <%= params[:course_name] %> </h2>
-<h3> <%= @grade.class_date %> </h3>
-
-<%= @grade.current_question %> </br>
-<%= @grade.total_points %></br>
-<%= @grade.class_date %></br>
-<%= @grade.answers %></br>
-<%= @grade.points %>
-
-
 <% if @grade.current_question != @grade.total_points + 1 %>
 
-	<div class="btn-group btn-group-vertical">
+		<div align="right"><font size="6"><%= @grade.current_question %></font></div>
 
-  		<%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id), :class => "btn"  %>
-  		<%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id), :class => "btn"  %>
-  		<%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id), :class => "btn"  %>
-  		<%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id), :class => "btn"  %>
-  		<%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id), :class => "btn"  %>
+  		<%= link_to "A", edit_grade_path(:temp => 'A', :id => @grade.id), :class => "btn btn-large"  %>
+  		<%= link_to "B", edit_grade_path(:temp => 'B', :id => @grade.id), :class => "btn btn-large"  %>
+  		<%= link_to "C", edit_grade_path(:temp => 'C', :id => @grade.id), :class => "btn btn-large"  %>
+  		<%= link_to "D", edit_grade_path(:temp => 'D', :id => @grade.id), :class => "btn btn-large"  %>
+  		<%= link_to "E", edit_grade_path(:temp => 'E', :id => @grade.id), :class => "btn btn-large"  %>
+  		<br><br>
 
-  
-	</div>
-
-<%= link_to "Next", next_grade_path(:id => @grade.id), :class => "btn btn-larg btn-primary" %>
+<div align="right"><%= link_to "Next", next_grade_path(:id => @grade.id), :class => "btn btn-larg btn-info" %></div>
 <% else %>
 	<h2>Thank You! You have finished this question set.</h2>
 	<!-- display their points here and have a link to "all grades" -->

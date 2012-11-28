@@ -1,6 +1,8 @@
 <h3> GradeBook: <%= @course.course_name %> </h3>
+<div align="right"><h5> x = absent </h5>
+<h5> @ = present </h5></div> 
 
-<table id="roster" >
+<table class="table table-bordered table-striped" >
 <tr>
 <th>Date</th>
 
@@ -13,18 +15,17 @@
 <td><b>Total Points</b></td>
 
 <% @answers.each do |answer| %>
-	<td> <%= answer.total_points %> </td>
+	<td><div align="center"><%= answer.total_points %></div></td>
 <% end %>
 </tr>
 
 <% @student_in_courses.each do |sic| %>
 	
 	<tr>
-	
 	<% student = Student.find(sic.student_ID) %>
 	<td><%= student.login %></td>
 	<% @answers.each do |answer| %>
-		<td><%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></td> 
+		<td> <div align="center"><%= @course.populate_attendance(sic.student_ID, @course.id, answer.class_date) %> <%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></div> </td> 
 	<% end %>
 	</tr>
 <% end %>
