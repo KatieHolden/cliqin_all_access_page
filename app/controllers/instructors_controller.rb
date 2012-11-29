@@ -12,6 +12,10 @@ class InstructorsController < ApplicationController
 
   # GET /instructors/1
   # GET /instructors/1.json
+  def account_warning
+    @instructor = Instructor.find(params[:id])
+  end
+
   def show
     @instructor = Instructor.find(params[:id])
    @instructor.IP = request.env['action_dispatch.remote_ip'].to_s
@@ -89,11 +93,34 @@ class InstructorsController < ApplicationController
   # DELETE /instructors/1.json
   def destroy
     @instructor = Instructor.find(params[:id])
+
+    courses = Course.where(:instructor_ID => @instructor.id)
+
+    courses.each do |course|
+      students = StudentInCourse.where(:course_ID => course.id)
+      students.each do |s|
+        s.destroy
+      end 
+
+      answers = Answer.where(:course_ID => course.id)
+      answers.each do |a|
+        a.destroy
+      end
+
+      grades = Grade.where(:course_ID => course.id)
+      grades.each do |g|
+        g.destroy
+      end
+
+      course.destroy
+    end
+
     @instructor.destroy
 
-    respond_to do |format|
-      format.html { redirect_to instructors_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
+    # respond_to do |format|
+    #   format.html { redirect_to instructors_url }
+    #   format.json { head :no_content }
+    # end
   end
 end

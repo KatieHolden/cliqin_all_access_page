@@ -10,6 +10,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  def account_warning
+    @student = Student.find(params[:id])
+  end
+
   # GET /students/1
   # GET /students/1.json
   def show
@@ -84,11 +88,24 @@ class StudentsController < ApplicationController
   # DELETE /students/1.json
   def destroy
     @student = Student.find(params[:id])
+
+    student_in_courses = StudentInCourse.where(:student_ID => @student.id)
+
+    student_in_courses.each do |sic|
+      grades = Grade.where(:student_ID => sic.student_ID, :course_ID => sic.course_ID)
+      grades.each do |g|
+        g.destroy
+      end
+
+      sic.destroy
+    end
+
     @student.destroy
 
-    respond_to do |format|
-      format.html { redirect_to students_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
+    # respond_to do |format|
+    #   format.html { redirect_to students_url }
+    #   format.json { head :no_content }
+    # end
   end
 end

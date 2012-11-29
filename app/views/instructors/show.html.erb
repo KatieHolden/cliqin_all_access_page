@@ -10,6 +10,11 @@
 		<% if @instructor.has_courses?(@instructor.id) %>
 			<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
 		<% end %>
+		<br>
+		<br>
+
+		<%= link_to 'Delete Account', account_warning_instructor_path(:id => @instructor.id), 
+		:class => "btn btn-danger" %>
 		
 	</div>
 	<div class = "span9 offset1">
@@ -40,6 +45,7 @@
 			<% end %>
 	  </div>
 	<div>
+
   </div>
 </div>
 </div>

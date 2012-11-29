@@ -87,12 +87,14 @@ class StudentInCoursesController < ApplicationController
   # DELETE /student_in_courses/1.json
   def destroy
     @student_in_course = StudentInCourse.find(params[:id])
-    @student_in_course.destroy
+    
 
     grades = Grade.where(:student_ID => @student_in_course.student_ID, :course_ID => @student_in_course.course_ID)
     grades.each do |g|
       g.destroy
     end
+
+    @student_in_course.destroy
 
     redirect_to show_all_student_in_course_path(:student_ID => @student_in_course.student_ID)
    

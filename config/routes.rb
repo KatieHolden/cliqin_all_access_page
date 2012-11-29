@@ -42,7 +42,12 @@ AllAccessPage::Application.routes.draw do
     end
   end
 
-  resources :students
+  resources :students do
+    member do
+      # maybe this shouldn't be a get request
+      get :account_warning
+    end
+  end
 
   resources :courses do
     member do
@@ -54,7 +59,12 @@ AllAccessPage::Application.routes.draw do
     end
   end
 
-  resources :instructors 
+  resources :instructors do 
+    member do 
+      # maybe this shoudln't be a get request
+      get :account_warning
+    end
+  end
 
   resources :sessions, :only => [:new, :create, :destroy]
 
