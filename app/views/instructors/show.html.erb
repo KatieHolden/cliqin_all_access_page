@@ -10,13 +10,10 @@
 		<% if @instructor.has_courses?(@instructor.id) %>
 			<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
 		<% end %>
-		<br>
-		<br>
-
-		<%= link_to 'Delete Account', account_warning_instructor_path(:id => @instructor.id), 
-		:class => "btn btn-danger" %>
-		
+				
 	</div>
+
+
 	<div class = "span9 offset1">
 	  <div class="tabbable tabs-right" >
 		<br>
@@ -31,6 +28,7 @@
 			  <li> <a data-toggle="tab" href="#<%=c.course_name%>">
 				  <%=c.course_name%></a></li>
               <% end %>
+              <li> <a href = "#delete_tab" data-toggle="tab"> Delete Account</a></li>
 	    </ul>
 	    <div class = "tab-content">
 		  <div class="tab-pane active" id="tab1">
@@ -43,10 +41,14 @@
 							{:course=>c} %>
 			</div>
 			<% end %>
+			<div class = "tab-pane" id="delete_tab">
+				<%= render :partial => 'instructors/account_warning', :locals => {:id => @instructor.id} %></div>
 	  </div>
+
 	<div>
 
   </div>
 </div>
 </div>
 </div>
+

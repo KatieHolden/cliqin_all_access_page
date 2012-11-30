@@ -11,11 +11,6 @@
 		<% if @student.has_courses(@student.id) %>
 			<%= link_to "Remove Course", show_all_student_in_course_path(:student_ID => @student.id), :class => "btn"%>
 		<% end %>
-		<br>
-		<br>
-
-		<%= link_to 'Delete Account', account_warning_student_path(:id => @student.id), 
-		:class => "btn btn-danger" %>
 		
 	 </div>
 	   <div class = "span9 offset1">
@@ -33,6 +28,7 @@
 				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
 						  <%= c.course_name%></a></li>
           <% end %>
+          <li> <a href = "#delete_tab" data-toggle="tab"> Delete Account</a></li>
 		            </ul>
 		  <div class = "tab-content">
 				  <div class="tab-pane active" id="tab1">
@@ -45,6 +41,8 @@
 								  {:student_in_course => c} %>
 				  </div>
 		  <%end%>
+		  <div class = "tab-pane" id="delete_tab">
+				<%= render :partial => 'students/account_warning', :locals => {:id => @student.id} %></div>
 		 </div>
     	</div>
     </div>
