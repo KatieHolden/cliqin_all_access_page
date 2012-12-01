@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
 
   def roster #pass in course_ID
     @course = Course.find(params[:id])
-    @answers = Answer.where(:course_ID => @course.id)
+    @answers = Answer.where(:course_ID => @course.id).sort_by &:class_date
     @student_in_courses = StudentInCourse.where(:course_ID => @course.id)
 
   end
