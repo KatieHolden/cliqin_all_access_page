@@ -74,7 +74,8 @@ class GradesController < ApplicationController
   end
 
   def display
-    @grade = Grade.where(:student_ID => params[:student_ID], :course_ID => params[:course_ID])
+    @grades = Grade.where(:student_ID => params[:student_ID], :course_ID => params[:course_ID])
+    @answers = Answer.where(:course_ID => params[:course_ID]).sort_by &:class_date
 
   end
 
