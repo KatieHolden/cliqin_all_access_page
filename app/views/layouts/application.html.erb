@@ -34,7 +34,9 @@
       </div>
     </header>
 	<body>
-			    <div class="container-fluid">
+			<% if !current_page?('/') %>
+			    <div class="container">
+			<%end%>
 				<% flash.each do |key, value| %>
 				<div class="alert alert-<%= key %>"><%= value %></div>
 				<% end %>

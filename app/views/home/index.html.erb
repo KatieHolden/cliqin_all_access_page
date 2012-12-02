@@ -1,7 +1,28 @@
-  <div class = "row-fluid" id = "HomePage">
-					<div class= "center hero-unit" >
-					</div>
-	</div>
+  <div id = "HomePage">
+		<div id= "zeback"><!-- To avoid rounded out edges for hero unit-->
+		<div class= "center hero-unit" >
+			<div class = "container">
+				<div class = "span5">
+				<h1> Finally</h1>
+				<h2> Classroom Attendance Done Right</h2>
+				</div>
+				<% if !signed_in? %>
+				<div class = "span3 offset2">
+					<%= form_for(:session, url: sessions_path) do |f| %>
+							<%= f.text_field :login, placeholder: "login" %>
+							<br>
+							<br>
+							<%= f.password_field :password, placeholder: "Password" %>
+							<br>
+							<br>
+							<%= f.submit "Sign in", class: "btn btn-custom btn-large " %>
+				<% end%>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		</div>
+	</div> <!--End of id HomePage-->
 <div class = "container" align = center>
 	<br>
   <div class = "row">

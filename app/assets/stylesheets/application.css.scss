@@ -31,12 +31,56 @@ header{
 
 #HomePage{
 
+	font-family: Sans;
+
 	h1{
-		color: $grayLight;
-		padding-top: 10px;
-		text-align: right;
-		padding-right: 25px;
-		font-size: 28px
+		padding-top: 125px;
+		font-size: 50px;
+		color: $white;
+		text-align: left;
+	}
+
+	h2{
+		color: $white;
+		font-weight: 500;
+		text-align: left;
+	}
+
+	.span3{
+
+		padding-top: 125px;
+
+		h2{
+			text-align: center;
+		}
+
+		.placeholder{
+				text-align: center;
+			}
+
+		.btn-custom { 
+				background-color: hsl(41, 85%, 35%) !important;
+				background-repeat: repeat-x; 
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efb73d", endColorstr="#a5750d");
+				background-image: -khtml-gradient(linear, left top, left bottom, from(#efb73d), to(#a5750d)); 
+				background-image: -moz-linear-gradient(top, #efb73d, #a5750d);
+				background-image: -ms-linear-gradient(top, #efb73d, #a5750d);
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efb73d), color-stop(100%, #a5750d));
+				background-image: -webkit-linear-gradient(top, #efb73d, #a5750d); background-image: -o-linear-gradient(top, #efb73d, #a5750d); 
+				background-image: linear-gradient(#efb73d, #a5750d);
+				border-color: #a5750d #a5750d hsl(41, 85%, 29%); 
+				color: #fff !important; 
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.39); 
+				-webkit-font-smoothing: antialiased; 
+				width: 70%;
+				font-size: 15px;
+				font-weight: 600;
+				font-family: Sans;
+			}
+	}
+
+	#zeback{
+		background-color: #000;
 	}
 
 	.hero-unit {
@@ -47,6 +91,9 @@ header{
 		background-color: #000;
 	  background-repeat: no-repeat;
 	  height: 270px;
+		border: none !important;
+
+
 	}
 }
 
@@ -90,7 +137,7 @@ header {
 			border: 0 !important;
 			box-shadow: none !important;
 			-webkit-box-shadow: none !important;
-			padding-bottom: 0px !important;
+			padding-bottom: 10px !important;
 			verticle-align: bottom;
 
 			.nav, 	
