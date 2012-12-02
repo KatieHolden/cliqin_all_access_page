@@ -12,10 +12,9 @@
     <header class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-			<a class="brand" href = "#">CliqIn</a>
+			<a class="brand" href = "/">CliqIn</a>
 			<div class="nav-collapse collapse">
 			  <ul class="nav">
-				 <li class="active"><%= link_to "Home",    '/' %></li>
                  <li><%= link_to "About",   '/static_pages/about' %></li>
                 <% if signed_in? %>
 				 <li><%= link_to "My Profile", current_user %></li>
@@ -28,18 +27,22 @@
             <% else %>
                  <li><%= link_to "Sign in", signin_path %></li>
 			  </ul>
-              <form class="navbar-form pull-right">
-			  	<input class = "span2" type = "text" placeholder = "login">
-			  	<input class = "span2" type = "password" placeholder ="password">
-				<button type= "submit" class="btn">Sign in </button>
-				</form>
+              <div class="navbar-form pull-right">
+				<%= form_for(:session, url: sessions_path) do |f| %>
+				<%= f.text_field :login , class: "span2",\
+								:placeholder => "login"%>
+				<%= f.password_field :password , class: "span2", :type =>\
+						"password", :placeholder => "password"%>
+				<%= f.submit "Sign in", class: "btn"%>
+				<% end %>
+				</div>
             <% end %>
 		  </div>
         </div>
       </div>
     </header>
 	<body>
-    		<div class="container" background-color="#000000">
+    		<div class="container-fluid">
 				<% flash.each do |key, value| %>
 				<div class="alert alert-<%= key %>"><%= value %></div>
 				<% end %>

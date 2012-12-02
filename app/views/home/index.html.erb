@@ -1,40 +1,36 @@
-<h1></h1> 
-<div id="HomePage">
- <%= image_tag "home_banner.jpeg", :id => "HomeImage" %>
-<div>
-  <h1 >
-    Classroom Assistant
-  </h1>
+  <div class = "row-fluid" id = "HomePage">
+			<%= image_tag ("home_banner.jpeg") %>
+	</div>
+<div class = "container" align = center>
 	<br>
- </div>
   <div class = "row">
 	<div class="span4" id="homeicon" >
-	  <h3>INSTRUCTOR SIGN UP</h3>
-	  	  <br>
-		  <br>
 		  <div align=center>
 				  <%= link_to(image_tag("instructor.jpeg", :alt =>\
-						  "Instructor Signup"), instructorsignup_path) %>
+						  "Instructor Signup"), instructorsignup_path)%>
+			<h2>Easy Attendance</h2>
+			<p> A simple way to maintain and monitor your classroom attendance. Easily
+			set up a daily question set that will keep your students engaged. <p>
 		</div>
 	</div>
 	<div class="span4" id="homeicon">
-	  <h3> STUDENT SIGN UP</h3>
-	  	  <br>
-		  <br>
 		  <div align=center>
 				  <%= link_to(image_tag("student.jpeg", :alt =>\
 						  "Instructor Signup"), studentsignup_path) %>
+	  			<h2>Easy Student Participation </h2>
+			    <p> Students can use their smart phones or laptops to participate
+					in class discussions. No need to buy an extra device to bring to
+					lecture.  <p>
 		</div>
 	</div>
 	<div class="span4" id="homeicon">
-	  <h3> LEARN MORE</h3>
-	  	  <br>
-		  <br>
 		  <div align=center>
 				  <%= link_to(image_tag("about.jpeg", :alt =>\
 						  "Instructor Signup"), '/static_pages/about') %>
+	  <h2> About Cliqin</h2>
+		<p> Learn more about how CliqIn works and how it can enhance the
+		classroom experience.<p>
 		</div>
 	</div>
-
   </div>
-  </div>
+	</div>

@@ -58,7 +58,7 @@ module AllAccessPage
 
     # Force all access to the app over SSL, use Strict-Transport-Security, 
     # and use secure cookies.
-    config.force_ssl = true
+    #config.force_ssl = true 
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
