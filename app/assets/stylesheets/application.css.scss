@@ -30,8 +30,10 @@ header{
 }
 
 #HomePage{
-
+	
+	
 	font-family: Sans;
+	padding-bottom: 40px;
 
 	h1{
 		padding-top: 125px;
@@ -98,17 +100,48 @@ header{
 }
 
 #homeicon{
+
+	font-family: Sans;
+
+ 		.instructor{				
+			background-image: url(instructor.jpeg);
+	}
 	
+ 		.students{				
+			background-image: url(student.jpeg);
+	}
+ 		.about{				
+			background-image: url(about.jpeg);
+	}
 	h2 {
 	text-align: center;
 	color: #000;
 	line-height: 0px;
 	padding-bottom: 0px;
+	
 	}
 
 	p{
 		font-size: 15px;
 	}
+
+		.btn-custom { 
+				background-color: hsl(41, 85%, 35%) !important;
+				background-repeat: repeat-x; 
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efb73d", endColorstr="#a5750d");
+				background-image: -khtml-gradient(linear, left top, left bottom, from(#efb73d), to(#a5750d)); 
+				background-image: -moz-linear-gradient(top, #efb73d, #a5750d);
+				background-image: -ms-linear-gradient(top, #efb73d, #a5750d);
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efb73d), color-stop(100%, #a5750d));
+				background-image: -webkit-linear-gradient(top, #efb73d, #a5750d); background-image: -o-linear-gradient(top, #efb73d, #a5750d); 
+				background-image: linear-gradient(#efb73d, #a5750d);
+				border-color: #a5750d #a5750d hsl(41, 85%, 29%); 
+				color: #fff !important; 
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.39); 
+				-webkit-font-smoothing: antialiased; 
+				font-size: 13px;
+				font-family: Sans;
+			}
 }
 
 /*   NAVBAR INFO */

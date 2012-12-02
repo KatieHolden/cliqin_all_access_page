@@ -7,7 +7,7 @@
 				<h2> Classroom Attendance Done Right</h2>
 				</div>
 				<% if !signed_in? %>
-				<div class = "span3 offset2">
+				<div class = "span3 offset3">
 					<%= form_for(:session, url: sessions_path) do |f| %>
 							<%= f.text_field :login, placeholder: "login" %>
 							<br>
@@ -26,32 +26,44 @@
 <div class = "container" align = center>
 	<br>
   <div class = "row">
-	<div class="span4" id="homeicon" >
+	<div class="span4" id="homeicon">
+			<i class="instructors"></i>
 		  <div align=center>
-				  <%= link_to(image_tag("instructor.jpeg", :alt =>\
-						  "Instructor Signup"), instructorsignup_path)%>
 			<h2>Easy Attendance</h2>
 			<p> A simple way to maintain and monitor your classroom attendance. Easily
 			set up a daily question set that will keep your students engaged. <p>
+		<br>
+		<br>
+			<%= link_to "Teacher Sign Up", instructorsignup_path,\
+							class: "btn btn-custom"%>
 		</div>
 	</div>
 	<div class="span4" id="homeicon">
+			<i class="students"></i>
 		  <div align=center>
-				  <%= link_to(image_tag("student.jpeg", :alt =>\
-						  "Instructor Signup"), studentsignup_path) %>
 	  			<h2>Easy Student Participation </h2>
 			    <p> Students can use their smart phones or laptops to participate
 					in class discussions. No need to buy an extra device to bring to
 					lecture.  <p>
+					<br>
+					<br>
+					<%= link_to "Student Sign Up", studentsignup_path,\
+									class: "btn btn-custom"%>
 		</div>
 	</div>
 	<div class="span4" id="homeicon">
+			<i class="learn_more"></i>
 		  <div align=center>
-				  <%= link_to(image_tag("about.jpeg", :alt =>\
-						  "Instructor Signup"), '/static_pages/about') %>
 	  <h2> About Cliqin</h2>
-		<p> Learn more about how CliqIn works and how it can enhance the
+		<p> Learn more about how cliqin can enhance your 
 		classroom experience.<p>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<%= link_to "Learn More", '/static_pages/about', \
+						class: "btn btn-custom"%>
 		</div>
 	</div>
   </div>
