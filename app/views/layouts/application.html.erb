@@ -10,7 +10,13 @@
     <![endif]-->
   </head>
     <header class="navbar navbar-inverse navbar-fixed-top">
+	<% if current_page?('/') %>
+	  <div>
       <div class="navbar-inner">
+	  <% else %>
+	  <div id="BORDER">
+      <div class="navbar-inner">
+	  <% end %>
         <div class="container">
 			<div class="nav-collapse collapse">
 			  <ul class="nav">
@@ -18,18 +24,15 @@
 						"cliqin"), '/') %></div>
 			   </ul>
 			  <ul class = "nav pull-right">
-                 <li><%= link_to "About",   '/static_pages/about' %></li>
                 <% if signed_in? %>
 				 <li><%= link_to "My Profile", current_user %></li>
                  <li>
                    <%= link_to "Sign out", instructorsignout_path, method: "delete" %>
                  </li>
 			  </ul>
-            <% else %>
-                 <li><%= link_to "Sign in", signin_path %></li>
-			  </ul>
             <% end %>
 		  </div>
+  		</div>
         </div>
       </div>
     </header>

@@ -32,7 +32,6 @@ header{
 #HomePage{
 	
 	
-	font-family: Sans;
 	padding-bottom: 40px;
 
 	h1{
@@ -77,7 +76,6 @@ header{
 				width: 70%;
 				font-size: 15px;
 				font-weight: 600;
-				font-family: Sans;
 			}
 	}
 
@@ -101,7 +99,6 @@ header{
 
 #homeicon{
 
-	font-family: Sans;
 
  		.instructor{				
 			background-image: url(instructor.jpeg);
@@ -140,7 +137,6 @@ header{
 				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.39); 
 				-webkit-font-smoothing: antialiased; 
 				font-size: 13px;
-				font-family: Sans;
 			}
 }
 
@@ -181,13 +177,13 @@ header {
 					*display:inline;
 					verticle-align: bottom;
 					font-size: 23px;
-					font-family: Sans;
 					font-weight: 50px;
 
 					//couldn't get this to work
 					&:hover{
 						 color: #000;
 					}
+
 			}
 		}
 }
