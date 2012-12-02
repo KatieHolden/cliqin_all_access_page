@@ -13,8 +13,6 @@
  */
 @import "bootstrap";
 
-$navbarBackground: $white;
-
 body{
 	height: 100%;
 }
@@ -32,6 +30,7 @@ header{
 }
 
 #HomePage{
+
 	h1{
 		color: $grayLight;
 		padding-top: 10px;
@@ -41,8 +40,11 @@ header{
 	}
 
 	.hero-unit {
+
 	  padding-top: 0px;
 	  background-image: url(home_banner.jpeg);
+		background-position: center;
+		background-color: #000;
 	  background-repeat: no-repeat;
 	  height: 245px;
 	}
@@ -98,8 +100,14 @@ header {
 					display:inline-block;
 					*display:inline;
 					verticle-align: bottom;
-					font-size: 25px;
+					font-size: 23px;
 					font-family: Sans;
+					font-weight: 50px;
+
+					//couldn't get this to work
+					&:hover{
+						 color: #000;
+					}
 			}
 		}
 }
