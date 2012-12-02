@@ -15,20 +15,27 @@
 <td><b>Total Points</b></td>
 
 <% @answers.each do |answer| %>
-	<td><div align="center"><%= answer.total_points %></div></td>
+	<td><div align="center"><b><%= answer.total_points %></b></div></td>
 <% end %>
 </tr>
 
+
+<% students = Array.new %>
 <% @student_in_courses.each do |sic| %>
-	
-	<tr>
 	<% student = Student.find(sic.student_ID) %>
+	<% students.push student %>
+<% end %>
+	
+<% student_infos = students.sort_by {|u| u.login} %>
+<% student_infos.each do |student| %>
+	<tr>
 	<td><%= student.login %></td>
 	<% @answers.each do |answer| %>
-		<td> <div align="center"><%= @course.populate_attendance(sic.student_ID, @course.id, answer.class_date) %> <%= @course.populate_roster_row(sic.student_ID, @course.id, answer.class_date) %></div> </td> 
+		<td> <div align="center"><%= @course.populate_attendance(student.id, @course.id, answer.class_date) %> <%= @course.populate_roster_row(student.id, @course.id, answer.class_date) %></div> </td> 
 	<% end %>
 	</tr>
 <% end %>
+
 
 </table>
 

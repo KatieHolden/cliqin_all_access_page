@@ -10,13 +10,10 @@
 		<% if @instructor.has_courses?(@instructor.id) %>
 			<%= link_to "Remove Course", show_all_course_path(:instructor_ID => @instructor.id), :class => "btn"%>
 		<% end %>
-		<br>
-		<br>
-
-		<%= link_to 'Delete Account', account_warning_instructor_path(:id => @instructor.id), 
-		:class => "btn btn-danger" %>
-		
+				
 	</div>
+
+
 	<div class = "span9 offset1">
 	  <div class="tabbable tabs-right" >
 		<br>
@@ -31,10 +28,26 @@
 			  <li> <a data-toggle="tab" href="#<%=c.course_name%>">
 				  <%=c.course_name%></a></li>
               <% end %>
+              <li> <a href = "#delete_tab" data-toggle="tab"> Delete Account</a></li>
 	    </ul>
 	    <div class = "tab-content">
 		  <div class="tab-pane active" id="tab1">
-			<p> Welcome to your Profile! You can add and remove Courses or Question Sets from here. </p>
+			<p> 
+				Welcome to your Profile! 
+			</p>
+			<p>
+				Here are some helpful tips to get you started:
+			</p>
+			<p>
+				<b>Creating a Question Set</b> - To create a question set for a course. Find the course in your tabs and click Add Question Set. From here you can enter the date the question set will be presented in class, the total number of questions, and the answers to each question.
+			</p>
+			<p>
+				<b>Launching a Session</b> - First things first: you need to be connected to the Cliqin network in you classroom to launch a session. Once you have connected, you can launch a session and students can start answering the question set for that class period.
+			</p>
+			<p>
+				<b>Signing Out</b> - Signing out deactivates any courses that you have launched. So be sure to sign out when you class is over to deactivate the course.
+				</b>
+			</p>
 		  </div>
 			<!--Rendering each of the course activation pages-->
             <% courses.each do |c| %>
@@ -43,10 +56,14 @@
 							{:course=>c} %>
 			</div>
 			<% end %>
+			<div class = "tab-pane" id="delete_tab">
+				<%= render :partial => 'instructors/account_warning', :locals => {:id => @instructor.id} %></div>
 	  </div>
+
 	<div>
 
   </div>
 </div>
 </div>
 </div>
+

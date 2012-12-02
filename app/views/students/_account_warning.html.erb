@@ -1,0 +1,14 @@
+<div class="center hero-unit">
+<h3> Warning! </h3>
+<br>
+<h2> Deleting your account will delete all responses that you have created. Your grades will be erased from the course Gradebook after you delete your account. </h2>
+<h3> Are you sure you want to delete your account? </h3>
+<br>
+<br>
+<div align="center"> <%= link_to 'Yes, delete my account', @student, :method => :delete,
+			:data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger" %>
+			<!-- we can probably take this confirm out...it's just so many confirmations -->
+
+			<%= link_to 'No, return to Profile', student_path(:id => @student.id), :class => "btn btn-info" %>
+</div> 
+</div>

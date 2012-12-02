@@ -11,11 +11,6 @@
 		<% if @student.has_courses(@student.id) %>
 			<%= link_to "Remove Course", show_all_student_in_course_path(:student_ID => @student.id), :class => "btn"%>
 		<% end %>
-		<br>
-		<br>
-
-		<%= link_to 'Delete Account', account_warning_student_path(:id => @student.id), 
-		:class => "btn btn-danger" %>
 		
 	 </div>
 	   <div class = "span9 offset1">
@@ -33,10 +28,22 @@
 				  <li><a data-toggle="tab" href="#<%=c.course_name%>">
 						  <%= c.course_name%></a></li>
           <% end %>
+          <li> <a href = "#delete_tab" data-toggle="tab"> Delete Account</a></li>
 		            </ul>
 		  <div class = "tab-content">
 				  <div class="tab-pane active" id="tab1">
-						 <p> Welcome to your Profile! Add or remove your courses from here. </p>
+						 <p> 
+						 	Welcome to your Profile! 
+						 </p>
+						 <p>
+							Here are some helpful tips to get you started:
+						</p>
+						 <p>
+						 	<b>Participating in a Course</b> - To participate in a course, you must add the course to your profile. During each class period that you attend, you must log on to the Cliqin network in your classroom to be able to answer questions.
+						 </p>
+						 <p>
+						 	<b>Answering Questions</b> - You may change your answer to a question as many times as you like before clicking next.
+						 <p>
 				  </div>
 				  <!--Rendering each of the course activation pages-->
 				  <% studentincourses.each do |c| %>
@@ -45,6 +52,8 @@
 								  {:student_in_course => c} %>
 				  </div>
 		  <%end%>
+		  <div class = "tab-pane" id="delete_tab">
+				<%= render :partial => 'students/account_warning', :locals => {:id => @student.id} %></div>
 		 </div>
     	</div>
     </div>
