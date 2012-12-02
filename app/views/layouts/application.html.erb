@@ -12,14 +12,15 @@
     <header class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-			<a class="brand" href = "/">CliqIn</a>
 			<div class="nav-collapse collapse">
 			  <ul class="nav">
+			    <div> <%= link_to(image_tag("logo.jpeg", :alt =>\
+						"cliqin"), '/') %></div>
+			   </ul>
+			  <ul class = "nav pull-right">
                  <li><%= link_to "About",   '/static_pages/about' %></li>
                 <% if signed_in? %>
 				 <li><%= link_to "My Profile", current_user %></li>
-			   </ul>
-			  <ul class = "nav pull-right">
                  <li>
                    <%= link_to "Sign out", instructorsignout_path, method: "delete" %>
                  </li>
@@ -27,27 +28,16 @@
             <% else %>
                  <li><%= link_to "Sign in", signin_path %></li>
 			  </ul>
-              <div class="navbar-form pull-right">
-				<%= form_for(:session, url: sessions_path) do |f| %>
-				<%= f.text_field :login , class: "span2",\
-								:placeholder => "login"%>
-				<%= f.password_field :password , class: "span2", :type =>\
-						"password", :placeholder => "password"%>
-				<%= f.submit "Sign in", class: "btn"%>
-				<% end %>
-				</div>
             <% end %>
 		  </div>
         </div>
       </div>
     </header>
 	<body>
-    		<div class="container-fluid">
 				<% flash.each do |key, value| %>
 				<div class="alert alert-<%= key %>"><%= value %></div>
 				<% end %>
 				<%= yield %>
-			</div>
 			<div class="push"><!--//--></div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>

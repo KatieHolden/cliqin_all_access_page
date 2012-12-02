@@ -13,6 +13,8 @@
  */
 @import "bootstrap";
 
+$navbarBackground: $white;
+
 body{
 	height: 100%;
 }
@@ -22,6 +24,11 @@ body{
 	moz-border-radius: 4px;
 	border-radius: 4px;
 	width: 100%;
+}
+
+header{
+
+
 }
 
 #HomePage{
@@ -53,5 +60,47 @@ body{
 	p{
 		font-size: 15px;
 	}
+}
+
+/*   NAVBAR INFO */
+
+header {
+
+		line-height: 40px;
+
+		.navbar {
+
+
+			-webkit-box-shadow: none !important;
+		}
+
+		.navbar-fixed-top{
+
+			-webkit-box-shadow: none !important;
+		}
+
+		.align_bottom{
+				verticle-align: center;
+		}
+
+		.navbar-inner {
+		  background: $white !important;
+			border: 0 !important;
+			box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			padding-bottom: 10px !important;
+			verticle-align: bottom;
+
+			.nav, 	
+			.nav > li {
+					padding-top: 10px;
+					float: none;
+					display:inline-block;
+					*display:inline;
+					verticle-align: bottom;
+					font-size: 25px;
+					font-family: Sans;
+			}
+		}
 }
 
